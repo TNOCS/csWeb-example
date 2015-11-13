@@ -1,5 +1,5 @@
 {
-  "name": "csWebExample",
+  "name": "csWeb-example",
   "version": "0.0.0",
   "authors": [
     "Erik Vullings",
@@ -23,10 +23,11 @@
     "tests"
   ],
   "dependencies": {
-      "csWeb" : "~0.1.11"
+    "csweb": "~0.2.2"
   },
   "resolutions": {
     "angular": "~1.4.7",
-    "d3": "~3.5.8"
+    "d3": "~3.5.8",
+    "leaflet.markercluster": "0.4.0"
   }
 }

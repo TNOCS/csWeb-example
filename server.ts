@@ -5,11 +5,9 @@ import * as csweb from "csweb";
 Winston.remove(Winston.transports.Console);
 Winston.add(Winston.transports.Console, <Winston.ConsoleTransportOptions>{
     colorize: true,
+    label: 'csWeb',
     prettyPrint: true
-});
-
-
-
+})
 
 var cs = new csweb.csServer(__dirname);
 cs.start(() => {
