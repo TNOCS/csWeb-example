@@ -22,18 +22,10 @@
     <!--TODO Add your title here-->
     <title>csWeb</title>
 
-    <!-- build:css css/csWeb.css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="bower_components/Font-Awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="bower_components/leaflet.locatecontrol/src/L.Control.Locate.css" />
-    <link rel="stylesheet" href="bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
-    <link rel="stylesheet" href="bower_components/spectrum/spectrum.css" rel="stylesheet" />
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="bower_components/csWeb/dist-bower/dc.css" /> -->
+
+    <!-- build:css css/csWeb.css -->
+    <link rel="stylesheet" href="bower_components/csweb/dist-bower/csWeb-dep.css" rel="stylesheet" />
     <link rel="stylesheet" href="bower_components/csWeb/dist-bower/csThirdparty.css" />
 
     <link rel="stylesheet" href="css/style.css">
@@ -43,47 +35,14 @@
 
 <body data-ng-controller="appCtrl" data-ng-cloak data-ng-init="showMap=true">
     <script src="/socket.io/socket.io.js"></script>
-    <!-- build:js csWeb.js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <!-- <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script> -->
-    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
-    <script src="bower_components/leaflet/dist/leaflet.js"></script>
-    <script src="bower_components/leaflet.locatecontrol/src/L.Control.Locate.js"></script>
-    <script src="bower_components/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
-    <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
-    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-ui-select/dist/select.js"></script>
-    <script src="bower_components/chroma-js/chroma.min.js"></script>
-    <script src="bower_components/d3/d3.min.js"></script>
-    <script src="bower_components/d3-tip/index.js"></script>
-    <script src="bower_components/crossfilter/crossfilter.min.js"></script>
-    <script src="bower_components/async/lib/async.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <script src="bower_components/spectrum/spectrum.js"></script>
-    <script src="bower_components/togeojson/togeojson.js"></script>
-    <script src="bower_components/interact/dist/interact.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/csWeb/dist-bower/js/wizMarkdown.min.js"></script>
-    <script src="bower_components/csWeb/dist-bower/js/vega-lite.js"></script>
-    <script src="bower_components/csWeb/dist-bower/csThirdparty.js"></script>
-
-    <script src="bower_components/vega-lite/vega-lite.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript" charset="utf-8"></script>
-
+    <!-- build:js csWeb.js -->
+    <script src="bower_components/csWeb/dist-bower/csWeb-dep.js"></script>
+    <script src="bower_components/csWeb/dist-bower/csThirdparty.js"></script>
     <script src="bower_components/csWeb/dist-bower/csComp.js"></script>
     <script src="app/app.js"></script>
     <script src="bower_components/csWeb/dist-bower/csTemplates.js"></script>
     <!-- endbuild -->
-    <script src="bower_components/csWeb/dist-bower/js/cesium.js"></script>
 
     <div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 
@@ -102,11 +61,12 @@
             <!-- Dashboard selection -->
             <dashboard-header-selection></dashboard-header-selection>
 
-            <!-- Select renderer -->
+            <!-- Select renderer 
             <ul class="nav navbar-nav" style="float:right">
                 <li data-ng-if="vm.$layerService.activeMapRenderer.title!='leaflet'"><a data-ng-click="vm.$layerService.selectRenderer('leaflet')">2D</a></li>
                 <li data-ng-if="vm.$layerService.activeMapRenderer.title!='cesium'"><a data-ng-click="vm.$layerService.selectRenderer('cesium')">3D</a></li>
             </ul>
+            -->
 
             <!-- Search form -->
             <!-- <offline-search class="navbar-form navbar-right" style="margin-right:0"></offline-search> -->
