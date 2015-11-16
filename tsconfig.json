@@ -5,7 +5,8 @@
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": false,
-    "noLib": false
+    "noLib": false,
+    "sourceMap": true
   },
   "filesGlob": [
     "./**/*.ts",
