@@ -1,6 +1,6 @@
-REM start /B code .
-REM start /B code ../csWeb/csComp
-REM start /B code ../csWeb/csServerComp
+start /B code .
+start /B code ../csWeb/csComp
+start /B code ../csWeb/csServerComp
 WHERE /q conemuc	
 IF ERRORLEVEL 1 (
 	ECHO ConEmuC wasn't found. Please add me to your path. 
