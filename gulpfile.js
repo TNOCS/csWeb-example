@@ -17,6 +17,9 @@ var deploy        = require('gulp-gh-pages');
 var purify        = require('gulp-purifycss');
 var concatCss     = require('gulp-concat-css');
 
+/** Destination of the client/server distribution */
+var dest = 'dist/';
+
 function run(command, cb) {
   console.log('Run command: ' + command);
   try {
@@ -31,10 +34,8 @@ function run(command, cb) {
   }
 }
 
-/** Create a new distribution by copying all required files to the dist folder. */
-gulp.task('create_dist', function() {
-    var dest = 'dist/';
-
+/** Create a new distribution by copying all required CLIENT files to the dist folder. */
+gulp.task('dist_client', function() {
     // Copy client side files
     // Copy app, images, css, data and swagger
     gulp.src('public/app/**/*.js*')
@@ -63,7 +64,10 @@ gulp.task('create_dist', function() {
     gulp.src(['public/bower_components/**/*.*', '!public/bower_components/csweb/**/*.*'])
         .pipe(plumber())
         .pipe(gulp.dest(dest + 'public/bower_components/'));
+});
 
+/** Create a new distribution by copying all required SERVER files to the dist folder. */
+gulp.task('dist_server', function() {
     // Copy server side files
     gulp.src(['./server.js', './server.js.map', './configuration.json', './LICENSE'])
         .pipe(plumber())
@@ -157,12 +161,12 @@ gulp.task('create_dist', function() {
         .pipe(plumber())
         .pipe(changed(dest + 'node_modules/csweb/dist-npm/'))
         .pipe(gulp.dest(dest + 'node_modules/csweb/dist-npm/'));
-    // gulp.src(['node_modules/**/*.*', '!node_modules/csweb/**/*.*'])
-    //     .pipe(plumber())
-    //     .pipe(gulp.dest(dest + 'node_modules/'));
 });
 
-gulp.task('example_tsconfig_files', function() {
+/** Create a new distribution by copying all required CLIENT+SERVER files to the dist folder. */
+gulp.task('dist', ['dist_client', 'dist_server']);
+
+gulp.task('update_tsconfig', function() {
   return gulp.src(['./**/*.ts',
             '!./node_modules/**/*.ts',
             '!./dist/**/*.*',
@@ -175,12 +179,12 @@ gulp.task('example_tsconfig_files', function() {
     }));
 });
 
-gulp.task('example_tsc', function(cb) {
+gulp.task('tsc', function(cb) {
   return run('tsc -p .', cb);
 });
 
-// Run required npm and bower installs for example folder
-gulp.task('example_deps', function(cb) {
+// Install required npm and bower installs for example folder
+gulp.task('install', function(cb) {
   return gulp.src([
       './package.json',       // npm install
       './public/bower.json',  // bower install
@@ -188,10 +192,11 @@ gulp.task('example_deps', function(cb) {
     .pipe(install(cb));
 });
 
+/** Initialiaze the project */
 gulp.task('init', function(cb) {
   runSequence(
-    'example_tsconfig_files',
-    'example_tsc',
+    'update_tsconfig',
+    'tsc',
     cb
   );
 });
@@ -206,16 +211,17 @@ var path2csWeb = './../csWeb';
 gulp.task('clean', function(cb) {
     // NOTE Careful! Removes all generated javascript files and certain folders.
     del([
-        path2csWeb + 'dist',
-        path2csWeb + 'public/**/*.js',
-        path2csWeb + 'public/**/*.js.map'
+        'dist',
+        'public/**/*.js',
+        'public/**/*.js.map'
     ], {
         force: true
     }, cb);
 });
 
+/** Deploy it to the github pages */
 gulp.task('deploy-githubpages', function() {
-    return gulp.src('dist/public/**/*')
+    return gulp.src(dest + 'public/**/*')
         .pipe(deploy({
             branch: 'master',
             cacheDir: '.deploy'
@@ -266,132 +272,132 @@ gulp.task('gh_pages', function() {
         .pipe(gulp.dest('gh_pages/'));
 });
 
-gulp.task('create_distxx', function() {
-    gulp.src(path2csWeb + 'example/public/images/**/*.*')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/images/'));
+// gulp.task('create_distxx', function() {
+//     gulp.src(path2csWeb + 'example/public/images/**/*.*')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/images/'));
 
-    gulp.src(path2csWeb + 'example/public/bower_components/angular-utils-pagination/*.*')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/bower_components/angular-utils-pagination/'));
+//     gulp.src(path2csWeb + 'example/public/bower_components/angular-utils-pagination/*.*')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/bower_components/angular-utils-pagination/'));
 
-    gulp.src(path2csWeb + 'csComp/includes/images/**/*.*')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/cs/images/'));
+//     gulp.src(path2csWeb + 'csComp/includes/images/**/*.*')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/cs/images/'));
 
-    gulp.src(path2csWeb + 'example/public/data/**/*.*')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/data/'));
+//     gulp.src(path2csWeb + 'example/public/data/**/*.*')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/data/'));
 
-    gulp.src(path2csWeb + 'example/public/cs/css/ROsanswebtextregular.ttf')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/css/'));
+//     gulp.src(path2csWeb + 'example/public/cs/css/ROsanswebtextregular.ttf')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/css/'));
 
-    gulp.src(path2csWeb + 'example/public/cs/js/cesium.js')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/cs/js/'));
+//     gulp.src(path2csWeb + 'example/public/cs/js/cesium.js')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/cs/js/'));
 
-    gulp.src(path2csWeb + 'example/public/bower_components/Font-Awesome/fonts/*.*')
-        .pipe(plumber())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/fonts/'));
+//     gulp.src(path2csWeb + 'example/public/bower_components/Font-Awesome/fonts/*.*')
+//         .pipe(plumber())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/fonts/'));
 
-    var assets = useref.assets();
+//     var assets = useref.assets();
 
-    return gulp.src(path2csWeb + 'example/public/*.html')
-        .pipe(assets)
-        .pipe(assets.restore())
-        .pipe(useref())
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/'));
-});
+//     return gulp.src(path2csWeb + 'example/public/*.html')
+//         .pipe(assets)
+//         .pipe(assets.restore())
+//         .pipe(useref())
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/'));
+// });
 
-gulp.task('create_dist_of_server', function() {
-    gulp.src(path2csWeb + 'example/node_modules/express/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/express/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/express/'));
-    gulp.src(path2csWeb + 'example/node_modules/body-parser/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/body-parser/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/body-parser/'));
-    gulp.src(path2csWeb + 'example/node_modules/serve-favicon/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/serve-favicon/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/serve-favicon/'));
-    gulp.src(path2csWeb + 'example/node_modules/proj4/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/proj4/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/proj4/'));
-    gulp.src(path2csWeb + 'example/node_modules/socket.io/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/socket.io/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/socket.io/'));
-    gulp.src(path2csWeb + 'example/node_modules/chokidar/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/chokidar/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/chokidar/'));
-    gulp.src(path2csWeb + 'example/node_modules/pg/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/pg/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/pg/'));
-    gulp.src(path2csWeb + 'example/node_modules/winston/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/winston/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/winston/'));
-    gulp.src(path2csWeb + 'example/node_modules/sqlite3/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/sqlite3/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/sqlite3/'));
-    gulp.src(path2csWeb + 'example/node_modules/async/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/async/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/async/'));
-    gulp.src(path2csWeb + 'example/node_modules/ws/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/ws/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/ws/'));
-    gulp.src(path2csWeb + 'example/node_modules/bcryptjs/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/bcryptjs/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/bcryptjs/'));
-    gulp.src(path2csWeb + 'example/node_modules/cors/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/cors/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/cors/'));
-    gulp.src(path2csWeb + 'example/node_modules/fs-extra/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/fs-extra/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/fs-extra/'));
-    gulp.src(path2csWeb + 'example/node_modules/jwt-simple/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/jwt-simple/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/jwt-simple/'));
-    gulp.src(path2csWeb + 'example/node_modules/request/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/request/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/request/'));
-    gulp.src(path2csWeb + 'example/node_modules/underscore/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/node_modules/underscore/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/underscore/'));
-    gulp.src(path2csWeb + 'example/ServerComponents/**/*.*')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/ServerComponents/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/ServerComponents/'));
-    gulp.src(path2csWeb + 'example/server.js')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/'));
-    gulp.src(path2csWeb + 'example/configuration.json')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/'));
-    gulp.src(path2csWeb + 'example/public/favicon.ico')
-        .pipe(plumber())
-        .pipe(changed(path2csWeb + 'example/dist/public/'))
-        .pipe(gulp.dest(path2csWeb + 'example/dist/public/'));
-});
+// gulp.task('create_dist_of_server', function() {
+//     gulp.src(path2csWeb + 'example/node_modules/express/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/express/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/express/'));
+//     gulp.src(path2csWeb + 'example/node_modules/body-parser/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/body-parser/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/body-parser/'));
+//     gulp.src(path2csWeb + 'example/node_modules/serve-favicon/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/serve-favicon/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/serve-favicon/'));
+//     gulp.src(path2csWeb + 'example/node_modules/proj4/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/proj4/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/proj4/'));
+//     gulp.src(path2csWeb + 'example/node_modules/socket.io/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/socket.io/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/socket.io/'));
+//     gulp.src(path2csWeb + 'example/node_modules/chokidar/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/chokidar/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/chokidar/'));
+//     gulp.src(path2csWeb + 'example/node_modules/pg/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/pg/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/pg/'));
+//     gulp.src(path2csWeb + 'example/node_modules/winston/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/winston/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/winston/'));
+//     gulp.src(path2csWeb + 'example/node_modules/sqlite3/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/sqlite3/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/sqlite3/'));
+//     gulp.src(path2csWeb + 'example/node_modules/async/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/async/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/async/'));
+//     gulp.src(path2csWeb + 'example/node_modules/ws/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/ws/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/ws/'));
+//     gulp.src(path2csWeb + 'example/node_modules/bcryptjs/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/bcryptjs/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/bcryptjs/'));
+//     gulp.src(path2csWeb + 'example/node_modules/cors/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/cors/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/cors/'));
+//     gulp.src(path2csWeb + 'example/node_modules/fs-extra/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/fs-extra/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/fs-extra/'));
+//     gulp.src(path2csWeb + 'example/node_modules/jwt-simple/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/jwt-simple/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/jwt-simple/'));
+//     gulp.src(path2csWeb + 'example/node_modules/request/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/request/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/request/'));
+//     gulp.src(path2csWeb + 'example/node_modules/underscore/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/node_modules/underscore/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/node_modules/underscore/'));
+//     gulp.src(path2csWeb + 'example/ServerComponents/**/*.*')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/ServerComponents/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/ServerComponents/'));
+//     gulp.src(path2csWeb + 'example/server.js')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/'));
+//     gulp.src(path2csWeb + 'example/configuration.json')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/'));
+//     gulp.src(path2csWeb + 'example/public/favicon.ico')
+//         .pipe(plumber())
+//         .pipe(changed(path2csWeb + 'example/dist/public/'))
+//         .pipe(gulp.dest(path2csWeb + 'example/dist/public/'));
+// });
 
-gulp.task('create_dist_of_client_and_server', ['create_dist', 'create_dist_of_server']);
+// gulp.task('create_dist_of_client_and_server', ['create_dist', 'create_dist_of_server']);
 
 gulp.task('minify_csComp', function() {
     // gulp.src(path2csWeb + 'csComp/dist-bower.js')
@@ -450,6 +456,6 @@ gulp.task('watch', function() {
 
 gulp.task('all', ['create_templateCache', 'copy_csServerComp', 'built_csServerComp.d.ts', 'copy_csServerComp_scripts', 'built_csComp', 'built_csComp.d.ts', 'include_css', 'include_js', 'include_images', 'copy_example_scripts', 'sass']);
 
-gulp.task('deploy', ['create_dist', 'deploy-githubpages']);
+gulp.task('deploy', ['dist_client', 'deploy-githubpages']);
 
 gulp.task('default', ['all', 'watch']);
