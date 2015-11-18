@@ -9,7 +9,9 @@ Winston.add(Winston.transports.Console, <Winston.ConsoleTransportOptions>{
     prettyPrint: true
 })
 
-var cs = new csweb.csServer(__dirname);
+var cs = new csweb.csServer(__dirname, <csweb.csServerOptions>{
+    port : 3003
+});
 cs.start(() => {
     console.log('started');
         //    //{ key: "imb", s: new ImbAPI.ImbAPI("app-usdebug01.tsn.tno.nl", 4000),options: {} }
