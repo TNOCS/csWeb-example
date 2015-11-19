@@ -33,6 +33,7 @@
 </head>
 
 <body data-ng-controller="appCtrl" data-ng-cloak data-ng-init="showMap=true">
+    <!--<script>L_PREFER_CANVAS = true;</script>-->
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript" charset="utf-8"></script>
     <!-- build:js csWeb.js -->
@@ -87,17 +88,18 @@
                     <!-- required for floating -->
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-left" id="leftPanelTab">
+                        
+                        <!-- 'tabs-right' for right tabs -->
                         <li class="active"  popover="{{'NAVIGATE' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#mobile" data-toggle="tab" data-ng-if="vm.$layerService.isMobile">
                                 <img src="bower_components/csWeb/dist-bower/images/search.png" style="width:30px;height:30px"></img>
                             </a>
-                        </li>
-                        <li class="active" data-ng-if="!vm.$layerService.isMobile" popover="{{'NAVIGATE' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
-                            <a data-target="#navigate" data-toggle="tab" data-ng-if="vm.$layerService.isMobile">
+                        </li>                        
+                        <li class="active" data-ng-if="!vm.$layerService.isMobile" popover="{{'BASESTYLES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                            <a data-target="#navigate" data-toggle="tab" data-ng-if="vm.$mapService.isIntermediate">
                                 <img src="bower_components/csWeb/dist-bower/images/search.png" style="width:30px;height:30px"></img>
                             </a>
                         </li>
-                        <!-- 'tabs-right' for right tabs -->
                         <li popover="{{'BASESTYLES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#basestyles" data-toggle="tab" data-ng-if="vm.$mapService.isIntermediate">
                                 <div class="mapIcon"></div>
