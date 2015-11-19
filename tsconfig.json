@@ -17,7 +17,6 @@
   ],
   "files": [
     "server.ts",
-    "test.ts",
     "public\\app\\app.ts",
     "public\\app\\m.ts",
     "Scripts\\typings\\tsd.d.ts",
