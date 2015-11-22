@@ -1,3 +1,3 @@
-start /B atom ./ ../csComp ../csServerComp ../test
+start /B atom ./ ../csWeb/csComp ../csWeb/csServerComp 
 nodemon server.js
 start http://localhost:3002
