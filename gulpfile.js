@@ -19,6 +19,7 @@ var concatCss     = require('gulp-concat-css');
 
 /** Destination of the client/server distribution */
 var dest = 'dist/';
+var path2csWeb = '../csWeb';
 
 function run(command, cb) {
   console.log('Run command: ' + command);
@@ -100,7 +101,8 @@ gulp.task('update_tsconfig', function() {
 });
 
 gulp.task('tsc', function(cb) {
-  return run('tsc -p .', cb);
+    //var cmd = 'tsc -w -p ' + path2csWeb + 'csServerComp & tsc -w -p ' + path2csWeb + 'csComp & tsc -w -p .'
+    return run("tsc -w -p .", cb);
 });
 
 // Install required npm and bower installs for example folder
@@ -124,9 +126,7 @@ gulp.task('init', function(cb) {
 // Gulp task upstream...
 // Configure gulp scripts
 // Output application name
-var appName    = 'csWebApp';
-var path2csWeb = './../csWeb';
-
+var appName = 'csWebApp';
 
 gulp.task('clean', function(cb) {
     // NOTE Careful! Removes all generated javascript files and certain folders.
@@ -154,23 +154,23 @@ gulp.task('deploy-githubpages', function() {
 //   update_tsconfig
 // });
 
-gulp.task('watch', function() {
-    gulp.watch(path2csWeb + 'csServerComp/ServerComponents/**/*.js', ['copy_csServerComp']);
-    gulp.watch(path2csWeb + 'csServerComp/Scripts/**/*.ts', ['copy_csServerComp_scripts']);
+// gulp.task('watch', function() {
+    // gulp.watch(path2csWeb + 'csServerComp/ServerComponents/**/*.js', ['copy_csServerComp']);
+    // gulp.watch(path2csWeb + 'csServerComp/Scripts/**/*.ts', ['copy_csServerComp_scripts']);
     //gulp.watch(path2csWeb + 'csServerComp/ServerComponents/**/*.d.ts', ['built_csServerComp.d.ts']);
-    gulp.watch(path2csWeb + 'csServerComp/ServerComponents/dynamic/ClientConnection.d.ts', ['built_csServerComp.d.ts']);
+    // gulp.watch(path2csWeb + 'csServerComp/ServerComponents/dynamic/ClientConnection.d.ts', ['built_csServerComp.d.ts']);
 
-    gulp.watch(path2csWeb + 'csComp/includes/**/*.scss', ['sass']);
-    gulp.watch(path2csWeb + 'csComp/js/**/*.js', ['built_csComp']);
-    gulp.watch(path2csWeb + 'csComp/js/**/*.d.ts', ['built_csComp.d.ts']);
-    gulp.watch(path2csWeb + 'csComp/**/*.tpl.html', ['create_templateCache']);
-    gulp.watch(path2csWeb + 'csComp/includes/**/*.css', ['include_css']);
-    gulp.watch(path2csWeb + 'csComp/includes/**/*.js', ['include_js']);
-    gulp.watch(path2csWeb + 'csComp/includes/images/*.*', ['include_images']);
-});
+    // gulp.watch(path2csWeb + 'csComp/includes/**/*.scss', ['sass']);
+    // gulp.watch(path2csWeb + 'csComp/js/**/*.js', ['built_csComp']);
+    // gulp.watch(path2csWeb + 'csComp/js/**/*.d.ts', ['built_csComp.d.ts']);
+    // gulp.watch(path2csWeb + 'csComp/**/*.tpl.html', ['create_templateCache']);
+    // gulp.watch(path2csWeb + 'csComp/includes/**/*.css', ['include_css']);
+    // gulp.watch(path2csWeb + 'csComp/includes/**/*.js', ['include_js']);
+    // gulp.watch(path2csWeb + 'csComp/includes/images/*.*', ['include_images']);
+// });
 
-gulp.task('all', ['create_templateCache', 'copy_csServerComp', 'built_csServerComp.d.ts', 'copy_csServerComp_scripts', 'built_csComp', 'built_csComp.d.ts', 'include_css', 'include_js', 'include_images', 'copy_example_scripts', 'sass']);
+//gulp.task('all', ['create_templateCache', 'copy_csServerComp', 'built_csServerComp.d.ts', 'copy_csServerComp_scripts', 'built_csComp', 'built_csComp.d.ts', 'include_css', 'include_js', 'include_images', 'copy_example_scripts', 'sass']);
 
 gulp.task('deploy', ['dist_client', 'deploy-githubpages']);
 
-gulp.task('default', ['all', 'watch']);
+gulp.task('default', ['init']);

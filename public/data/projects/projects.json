@@ -129,7 +129,7 @@
     }],
     "projects": [{
         "title": "Vluchtelingen in kaart",
-        "url": "api/projects/vluchtelingen",
+        "url": "data/projects/vluchtelingen/project.json",
         "dynamic": true
     },{
         "title": "Mobile",
