@@ -22,7 +22,7 @@
             "opacity": 75,
             "type": "geojson",
             "storage": "file",
-            "url": "/data/projects/Vluchtelingen/vluchtelingen.json",
+            "url": "/data/projects/vluchtelingen/vluchtelingen.json",
             "isDynamic": false
         }]
     }, {
@@ -42,7 +42,7 @@
             "typeUrl": "data/resourceTypes/azc.json",
             "opacity": 75,
             "type": "geojson",
-            "url": "/data/projects/Vluchtelingen/azc.json",
+            "url": "/data/projects/vluchtelingen/azc.json",
             "isDynamic": false
         }]
     }],
