@@ -78,6 +78,9 @@ gulp.task('dist_server', function() {
         .pipe(plumber())
         .pipe(changed(dest + 'node_modules/'))
         .pipe(gulp.dest(dest + 'node_modules/'));
+   gulp.src('node_modules/csweb/dist-npm/package.json')
+        .pipe(plumber())        
+        .pipe(gulp.dest(dest + 'node_modules/csweb/'));        
     return gulp.src('node_modules/csweb/dist-npm/**/*.*')
         .pipe(plumber())
         .pipe(changed(dest + 'node_modules/csweb/dist-npm/'))
