@@ -5,4 +5,4 @@ start tsc -p ../csWeb/csComp -w
 start tsc -w 
 start nodemon server
 cd ../csWeb/
-gulp
+gulp watch
