@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="bower_components/Font-Awesome/css/font-awesome.min.css" />
 
     <!-- build:css css/csWeb.css -->
-    <link rel="stylesheet" href="bower_components/csweb/dist-bower/csWeb-dep.css" rel="stylesheet" />
+    <link rel="stylesheet" href="bower_components/csweb/dist-bower/csWeb-dep.css" />
     <link rel="stylesheet" href="bower_components/csweb/dist-bower/css/csStyles.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css">
@@ -48,7 +48,7 @@
     <div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
 
         <div class="navbar-header" data-ng-cloak>
-            <a class="menutoggle" ng-click="vm.$layerService.visual.leftPanelVisible = !vm.$layerService.visual.leftPanelVisible" popover="{{'TOGGLE_MENU' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true"><i class="fa fa-bars"></i></a>
+            <a class="menutoggle" ng-click="vm.$layerService.visual.leftPanelVisible = !vm.$layerService.visual.leftPanelVisible" popover="{{'TOGGLE_MENU' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true"><i class="fa fa-bars"></i></a>
         </div>
 
         <!-- Link to views -->
@@ -85,58 +85,58 @@
                     <!-- required for floating -->
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-left" id="leftPanelTab">
-                        
+                        <li class="active" popover="{{'NAVIGATE' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                         <!-- 'tabs-right' for right tabs -->
-                        <li class="active" popover="{{'NAVIGATE' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#mobile" data-toggle="tab">
-                                <img src="bower_components/csweb/dist-bower/images/search.png" style="width:30px;height:30px"></img>
+                                <div class="searchIcon"></div>
+                                <!--<img src="bower_components/csweb/dist-bower/images/search.png" style="width:30px;height:30px">-->
                             </a>
                         </li>                        
-                        <li popover="{{'BASESTYLES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'BASESTYLES' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#basestyles" data-toggle="tab" data-ng-if="vm.$mapService.isIntermediate">
                                 <div class="mapIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'LAYERS' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'LAYERS' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#layers" data-toggle="tab">
                                 <div class="layersIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'FILTERS' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'FILTERS' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#filters" data-toggle="tab">
                                 <div class="filtersIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'STYLES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'STYLES' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#styles" data-toggle="tab">
                                 <div class="stylesIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'MCA.NAME' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'MCA.NAME' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#mca" data-toggle="tab" data-ng-if="vm.$mapService.isExpert">
                                 <div class="mcaIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'HEATMAP.NAME' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'HEATMAP.NAME' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#heatmap" data-toggle="tab" data-ng-if="vm.$mapService.isExpert">
                                 <div class="heatmapIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'FEATURES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'FEATURES' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#features" data-toggle="tab">
                                 <div class="featuresIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'LEGEND' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'LEGEND' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#legend" data-toggle="tab">
                                 <div class="mainLegendIcon"></div>
                             </a>
                         </li>
-                        <li popover="{{'DASHBOARD_SELECTION' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'DASHBOARD_SELECTION' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#dashboardselection" data-ng-if="vm.$mapService.isExpert" data-toggle="tab"><i class="fa fa-tachometer fa-2x" style="color: black"></i>
                       </a>
                         </li>
-                        <li popover="{{'SETTINGS' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'SETTINGS' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a data-target="#settings" data-toggle="tab" data-ng-if="vm.$mapService.isAdminExpert">
                                 <i class="fa fa-gear fa-2x" style="color: black"></i>
                             </a>
