@@ -87,7 +87,7 @@
                     <ul class="nav nav-tabs tabs-left" id="leftPanelTab">
                         <li class="active" popover="{{'NAVIGATE' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                         <!-- 'tabs-right' for right tabs -->
-                            <a data-target="#mobile" data-toggle="tab">
+                            <a data-target="#navigate" data-toggle="tab">
                                 <div class="searchIcon"></div>
                                 <!--<img src="bower_components/csweb/dist-bower/images/search.png" style="width:30px;height:30px">-->
                             </a>
@@ -146,8 +146,7 @@
 
                 <div class="leftpanel-content">
                     <!-- Tab panes -->
-                    <div class="tab-content ">
-                        <mobile class="tab-pane active" id="mobile" data-ng-if="vm.$layerService.isMobile"></mobile>
+                    <div class="tab-content ">                        
 
                         <navigate class="tab-pane active" id="navigate" data-ng-if="!vm.$layerService.isMobile"></navigate>
 
