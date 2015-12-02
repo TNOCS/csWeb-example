@@ -46,15 +46,15 @@ module App {
             private $dashboardService: csComp.Services.DashboardService,
             private geoService: csComp.Services.GeoService
             ) {
-            sffjs.setCulture("nl-NL");
+            sffjs.setCulture('nl-NL');
 
             $scope.vm = this;
             $scope.showMenuRight = false;
             $scope.featureSelected = false;
             $scope.layersLoading = 0;
 
-            $messageBusService.subscribe("project", (action: string) => {
-                if (action === "loaded") {
+            $messageBusService.subscribe('project', (action: string) => {
+                if (action === 'loaded') {
                     this.areaFilter = new AreaFilter.AreaFilterModel();
                     this.$layerService.addActionService(this.areaFilter);
                     this.contourAction = new ContourAction.ContourActionModel();
@@ -62,59 +62,59 @@ module App {
 
                     // NOTE EV: You may run into problems here when calling this inside an angular apply cycle.
                     // Alternatively, check for it or use (dependency injected) $timeout.
-                    if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') { $scope.$apply(); }
+                    if ($scope.$root.$$phase !== '$apply' && $scope.$root.$$phase !== '$digest') { $scope.$apply(); }
                     //$scope.$apply();
                 }
             });
 
-            //$messageBusService.subscribe("sidebar", this.sidebarMessageReceived);
-            $messageBusService.subscribe("feature", this.featureMessageReceived);
-            $messageBusService.subscribe("layer", this.layerMessageReceived);
+            //$messageBusService.subscribe('sidebar', this.sidebarMessageReceived);
+            $messageBusService.subscribe('feature', this.featureMessageReceived);
+            $messageBusService.subscribe('layer', this.layerMessageReceived);
 
             var rpt = csComp.Helpers.createRightPanelTab('featureprops', 'featureprops', null, 'Selected feature', '{{"FEATURE_INFO" | translate}}', 'info');
             this.$messageBusService.publish('rightpanel', 'activate', rpt);
             this.$layerService.visual.rightPanelVisible = false; // otherwise, the rightpanel briefly flashes open before closing.
 
-            this.$layerService.openSolution("data/projects/projects.json", $location.$$search.layers);
+            this.$layerService.openSolution('data/projects/projects.json', $location.$$search.layers);
         }
 
         /**
          * Publish a toggle request.
          */
         toggleMenuRight() {
-            this.$messageBusService.publish("sidebar", "toggle");
+            this.$messageBusService.publish('sidebar', 'toggle');
         }
 
         private layerMessageReceived = (title: string, layer: csComp.Services.ProjectLayer): void => {
             switch (title) {
-                case "loading":
+                case 'loading':
                     this.$scope.layersLoading += 1;
-                    console.log("Loading");
+                    console.log('Loading');
                     break;
-                case "activated":
+                case 'activated':
                     if (this.$scope.layersLoading >= 1) this.$scope.layersLoading -= 1;
-                    console.log("Activated");
+                    console.log('Activated');
                     break;
-                case "error":
+                case 'error':
                     this.$scope.layersLoading = 0;
-                    console.log("Error loading");
+                    console.log('Error loading');
                     break;
-                case "deactivate":
+                case 'deactivate':
                     break;
             }
 
-            var $contextMenu = $("#contextMenu");
+            var $contextMenu = $('#contextMenu');
 
-            $("body").on("contextmenu", "table tr", function(e) {
+            $('body').on('contextmenu', 'table tr', function(e) {
                 $contextMenu.css({
-                    display: "block",
+                    display: 'block',
                     left: e.pageX,
                     top: e.pageY
                 });
                 return false;
             });
 
-            $contextMenu.on("click", "a", function() {
+            $contextMenu.on('click', 'a', function() {
                 $contextMenu.hide();
             });
 
@@ -127,10 +127,10 @@ module App {
 
         private featureMessageReceived = (title: string): void => {
             switch (title) {
-                case "onFeatureSelect":
+                case 'onFeatureSelect':
                     this.$scope.featureSelected = true;
                     break;
-                case "onFeatureDeselect":
+                case 'onFeatureDeselect':
                     this.$scope.featureSelected = false;
                     break;
             }
@@ -150,13 +150,13 @@ module App {
          */
         private sidebarMessageReceived = (title: string): void => {
             switch (title) {
-                case "toggle":
+                case 'toggle':
                     this.$scope.showMenuRight = !this.$scope.showMenuRight;
                     break;
-                case "show":
+                case 'show':
                     this.$scope.showMenuRight = true;
                     break;
-                case "hide":
+                case 'hide':
                     this.$scope.showMenuRight = false;
                     break;
                 default:
@@ -168,8 +168,8 @@ module App {
         }
 
         toggleSidebar(): void {
-            this.$messageBusService.publish("sidebar", "toggle");
-            window.console.log("Publish toggle sidebar");
+            this.$messageBusService.publish('sidebar', 'toggle');
+            window.console.log('Publish toggle sidebar');
         }
 
         //public showTable(tableVisible: boolean) {
@@ -202,8 +202,8 @@ module App {
         .config(TimelineServiceProvider => {
         TimelineServiceProvider.setTimelineOptions({
             'width': '100%',
-            "eventMargin": 0,
-            "eventMarginAxis": 0,
+            'eventMargin': 0,
+            'eventMarginAxis': 0,
             'editable': false,
             'layout': 'box'
         });
@@ -221,6 +221,8 @@ module App {
         $translateProvider.translations('en', Translations.English.locale);
         $translateProvider.translations('nl', Translations.Dutch.locale);
         $translateProvider.preferredLanguage('en');
+        // Enable escaping of HTML
+        $translateProvider.useSanitizeValueStrategy('escape');
     })
         .config($languagesProvider => {
         // Defines the GUI languages that you wish to use in your project.
