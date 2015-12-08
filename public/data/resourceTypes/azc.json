@@ -1,7 +1,7 @@
 {
     "featureTypes": {
         "azc": {
-            "name": "azc",
+            "name": "Asielzoekerscentra",
             "style": {
                 "iconUri": "images/azc.png",
                 "iconWidth": 32,
@@ -15,6 +15,12 @@
                 "fillOpacity": 1,
                 "nameLabel": "Naam"
             },
+            "legendExpr": [{
+            	"title": "Totaal opvangplaatsen",
+				"type": "number",
+	            "stringFormat": "{0:#,#}",
+            	"expression": "sum(features, 'Opvangplaatsen')"
+            }],
             "propertyTypeKeys": "Naam;Type;Opvangplaatsen;Adres;Straat;Huisnummer;Huisletter;Postcode;Telefoon;Email;Noodopvang;Beschikbaar tot;Beschrijving;"
         }
     },
