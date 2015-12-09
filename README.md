@@ -14,10 +14,12 @@ When you have node and npm installed, install typescript (to compile the TypeScr
 ```
 npm i -g typescript
 ```
-We also need bower to fetch some client libraries. You can install bower using npm. If you don't have git installed, you can also have a look at the bower getting started documentation [here](http://bower.io/#install-bower)
+We also need bower to fetch some client libraries. You can install bower using npm. 
 ```
 npm i -g bower
 ```
+If you don't have git installed, you can also have a look at the bower getting started documentation [here](http://bower.io/#install-bower)
+
 Optionally, you may also install ```nodemon``` and/or ```http-server``` to run a local web server that serves your files. The first as it continuously watches your files and restarts when something changes. The second to run the application stand-alone (without the node server - this is useful if you wish to share your application on a public html folder without running a server). 
 ```
 npm i -g nodemon http-server
