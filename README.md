@@ -63,6 +63,8 @@ A GEOJSON file only contains data (as key-value pairs in the properties field). 
 So go to the ```data/resourceTypes``` folder and start editing ```POLYGON_FEATURE.json``` and ```POINT_FEATURE.json```. Each key in ```featureTypes``` refers to the ```defaultFeatureType``` (or ```featureTypeId```) in the ```project.json``` file. Replace its ```name```, ```iconUri```, ```nameLabel``` (refers to the feature's property that contains its name, which is shown upon hovering) and ```propertyTypeKeys```. The latter requires some explanation: A feature can have many properties. However, we only display those that you explicitly reference in the ```propertyTypeKeys```.
 
 Finally, you can edit each the style that is used for each property. Edit the appropriate key in the ```propertyTypeData```, where the ```label``` refers to the property key in the data (e.g. ```people``` when you have a property ```"feature.properties.people": 5000``` in the data file), its ```title```, type (e.g. ```text, textarea, number, boolean, options```). For ```number```, you may specify the ```stringFormat``` (using the [.NET syntax](http://blog.stevex.net/string-formatting-in-csharp)).
+
+For more information on ```FeatureType``` and ```PropertyType``` formats, see the [csWeb page](https://github.com/TNOCS/csWeb/wiki/FeatureType-and-PropertyType-format).
  
 ### Making it look pretty - using the integrated style editor
 
