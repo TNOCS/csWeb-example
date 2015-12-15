@@ -1,7 +1,6 @@
 start /B code .
 start /B code ../csWeb
-start tsc -p ../csWeb/csServerComp -w
-start tsc -p ../csWeb/csComp -w 
+start tsc -p ../csWeb
 start tsc -w 
 start nodemon server
 cd ../csWeb/
