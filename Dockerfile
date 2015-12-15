@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y libkrb5-dev
 USER node
 ENV HOME /home/node
 
-EXPOSE 3002
+EXPOSE 3003
 WORKDIR /home/node/app
 RUN npm install
 WORKDIR /home/node/app/public
