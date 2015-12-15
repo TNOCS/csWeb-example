@@ -6,10 +6,8 @@ Source code, Wiki's and issue tracker can all be found [here](https://github.com
 # Getting started
 
 ## Tools of the trade
-We need a few tools to get you going. First of all, install [node](https://nodejs.org). We are currently using version 4, and if you're on Windows, please install the msi package, as this will install the node package manager (npm) too. Currently (Dec 2015), node installs with npm version 2, but we need 3. Check your version (```npm -v```) and if you're still on version 2, update it to the latest version with
-```
-npm i -g npm@latest
-```
+We need a few tools to get you going. First of all, install [node](https://nodejs.org). We are currently using version 5, and if you're on Windows, please install the msi package, as this will install the node package manager (npm) too. We work with npm version 3.
+
 When you have node and npm installed, install typescript (to compile the TypeScript sources to javascript).
 ```
 npm i -g typescript
