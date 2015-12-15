@@ -5,7 +5,7 @@ ADD . /home/node/app
 RUN chown -R node:node /home/node
 
 RUN npm install -g npm
-RUN npm install -g typescript@1.7.2 bower gulp node-gyp
+RUN npm install -g typescript@1.7.5 bower gulp node-gyp
 RUN apt-get update && apt-get install -y libkrb5-dev
 
 USER node
