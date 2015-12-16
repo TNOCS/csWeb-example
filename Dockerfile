@@ -12,6 +12,7 @@ USER node
 ENV HOME /home/node
 
 EXPOSE 3003
+VOLUME ["/home/node/app"]
 WORKDIR /home/node/app
 RUN npm install
 WORKDIR /home/node/app/public
