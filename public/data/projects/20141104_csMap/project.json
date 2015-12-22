@@ -26,23 +26,23 @@
     }
   ],
   "dashboards": [
-      {
-        "id": "home",
-        "name": "Home",
-        "editMode": false,
-        "showMap": true,
-        "showTimeline": true,
-        "showLeftmenu": true,
-        "showLegend": true,
-        "showBackgroundImage": false,
-        "visiblelayers": [
-          "zorgkantoor"
-        ],
-        "widgets": null,
-        "visibleLeftMenuItems": [
-          "!lm-layers"
-        ]
-      },
+    {
+      "id": "home",
+      "name": "Home",
+      "editMode": false,
+      "showMap": true,
+      "showTimeline": true,
+      "showLeftmenu": true,
+      "showLegend": true,
+      "showBackgroundImage": false,
+      "visiblelayers": [
+        "zorgkantoor"
+      ],
+      "widgets": null,
+      "visibleLeftMenuItems": [
+        "!lm-layers"
+      ]
+    },
     {
       "id": "health",
       "name": "Health",
@@ -112,7 +112,6 @@
         "layers"
       ]
     },
-
     {
       "id": "datatable",
       "name": "Table",
@@ -681,7 +680,7 @@
           "description": "Data at the health office regions. (Source: CBS, BAG, TNO, DigiMV.)",
           "type": "geojson",
           "renderType": "geojson",
-                "defaultLegendProperty": "aant_inw",
+          "defaultLegendProperty": "aant_inw",
           "url": "data/projects/20141104_csMap/Regio ZK ZZP CBS.json",
           "typeUrl": "data/resourceTypes/Zorgkantoor.json",
           "opacity": 100,
