@@ -42,6 +42,10 @@ tsc -p .
 node server.js
 ``` 
 
+*I got error messages during the first step (npm i): "TRACKER : error TRK0005: Failed to locate: "CL.exe"".
+It seems that CL.exe belongs to Visual Studio. So, is seems to be another requisite to have Visual Studio installed.
+(comment 30 Dec 15 by Reinier Sterkenburg)*
+
 Alternatively, replace the last command with `nodemon server.js` or go to the public folder and run `http-server`.
 
 Visit http://localhost:3003 to see the application running.
