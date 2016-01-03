@@ -6,6 +6,7 @@
                 "iconUri": "images/gemeente.png",
                 "iconWidth": 24,
                 "iconHeight": 24,
+                "drawingMode": "Polygon",
                 "stroke": true,
                 "strokeWidth": 1,
                 "strokeColor": "#000000",
