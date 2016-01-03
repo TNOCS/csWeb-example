@@ -58,12 +58,11 @@
             <!-- Dashboard selection -->
             <dashboard-header-selection></dashboard-header-selection>
 
-            <!-- Select renderer 
+            <!-- Select renderer -->
             <ul class="nav navbar-nav" style="float:right">
                 <li data-ng-if="vm.$layerService.activeMapRenderer.title!='leaflet'"><a data-ng-click="vm.$layerService.selectRenderer('leaflet')">2D</a></li>
                 <li data-ng-if="vm.$layerService.activeMapRenderer.title!='cesium'"><a data-ng-click="vm.$layerService.selectRenderer('cesium')">3D</a></li>
             </ul>
-            -->
 
             <!-- Search form -->
             <!-- <offline-search class="navbar-form navbar-right" style="margin-right:0"></offline-search> -->

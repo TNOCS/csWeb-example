@@ -11,3 +11,5 @@ public/**/*.js.map
 server.js.map
 server.js
 dist/
+
+offline_search_result.json
