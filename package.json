@@ -1,6 +1,6 @@
 {
   "name": "csWebExample",
-  "version": "0.1.0",
+  "version": "0.2.16-rc1",
   "description": "CommonSense web application",
   "main": "app.js",
   "start": "node server.js",
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "csweb": "^0.2.8",
+    "csweb": "^0.2.15",
     "winston": "^2.1.0"
   },
   "devDependencies": {
