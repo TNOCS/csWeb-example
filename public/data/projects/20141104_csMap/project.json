@@ -160,6 +160,45 @@
           "height": "350px"
         }
       ]
+    },
+    {
+      "id": "tablemap",
+      "name": "Widget & Map",
+      "editMode": false,
+      "showMap": true,
+      "mapWidth": "50%",
+      "viewBounds": {
+      "southWest": [
+            50.3,
+            3.2
+        ],
+        "northEast": [
+            53.5,
+            8.0
+        ]
+      },
+      "alignMapRight": true,
+      "showTimeline": false,
+      "showLeftmenu": false,
+      "showRightmenu": false,
+      "showBackgroundImage": false,
+      "widgets": [
+        {
+          "id": "3654881f-0644-46ea-5133-f45c3dde8c99",
+          "directive": "markdownwidget",
+          "title": "Test",
+          "data": {
+            "url": "data/projects/20141104_csMap/test.md",
+            "content": "# Hello World #\n | a | b | c | d | \n |---|---|---|---| \n | 1 | 2 | 3 | 4 |"
+          },
+          "elementId": "widget-3654881f-0644-46ea-5133-f45c3dde8c99",
+          "enabled": true,
+          "left": "0px",
+          "top": "0px",
+          "width": "50%",
+          "height": "100%"
+        }
+      ]
     }
   ],
   "userPrivileges": {

@@ -73,7 +73,8 @@
         </div>
     </div>
 
-    <map mapid="main" class="map-main" ng-show="vm.$layerService.visual.mapVisible"></map>
+    <map mapid="main" class="map-main" ng-show="vm.$layerService.visual.mapVisible"
+    ng-style="{width: vm.$layerService.visual.mapWidth ? vm.$layerService.visual.mapWidth : '100%', left: vm.$layerService.visual.alignMapRight ? vm.$layerService.visual.mapWidth : 0}"></map>
 
     <div style="position: absolute;width: 100%;height:100%;pointer-events: none;display:table">
 
