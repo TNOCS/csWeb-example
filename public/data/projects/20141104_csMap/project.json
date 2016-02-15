@@ -536,28 +536,6 @@
       "oneLayerActive": true,
       "layers": [
         {
-          "id": "bagcontouren",
-          "title": "BAG Contours",
-          "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: Kadaster.)",
-          "type": "database",
-          "renderType": "geojson",
-          "heatmapItems": null,
-          "url": "bagcontours",
-          "typeUrl": "data/resourceTypes/BagPanden.json",
-          "refreshBBOX": true,
-          "languages": {
-            "nl": {
-              "title": "BAG Contouren",
-              "description": "Basis Administratie Gebouwen (Bron: Kadaster)."
-            },
-            "en": {
-              "title": "BAG Contours",
-              "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: Kadaster.)"
-            }
-          },
-          "defaultFeatureType": "BagPanden"
-        },
-        {
           "id": "bag",
           "title": "BAG (Cadastre)",
           "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: PDOK.nl.)",
@@ -837,6 +815,63 @@
           }
         }
       ]
+    },
+    {
+        "id": "BAG",
+        "description": "Layers based on the Basis Administratie Gebouwen (Bron: Kadaster)",
+        "title": "BAG",
+        "clusterLevel": 21,
+        "clustering": true,
+        "oneLayerActive": true,
+        "layers": [{
+                    "id" : "bagadressen",
+                    "reference" : "bagadressen",
+                    "languages" : {
+                        "nl" : {
+                            "title" : "BAG Woningen",
+                            "description" : "Zoom in op wijkniveau om woningen in het betreffende gebied te laden."
+                        },
+                        "en" : {
+                            "title" : "BAG Woningen",
+                            "description" : "Zoom in on city level to show buildings in the shown extent."
+                        }
+                    },
+                    "refreshBBOX" : true,
+                    "defaultFeatureType" : "BagPanden",
+                    "typeUrl" : "data/resourceTypes/BagPanden.json",
+                    "type" : "database",
+                    "enabled" : false,
+                    "url" : "bagcontours",
+                    "renderType" : "geojson",
+                    "dataSourceParameters" : {
+                        "minZoomLevel" : 15,
+                        "getPointFeatures" : false
+                    }
+        }, {
+                    "id" : "bagcontouren",
+                    "reference" : "bagcontouren",
+                    "languages" : {
+                        "nl" : {
+                            "title" : "BAG Contouren",
+                            "description" : "Zoom in op wijkniveau om woningen in het betreffende gebied te laden."
+                        },
+                        "en" : {
+                            "title" : "BAG Contouren",
+                            "description" : "Zoom in on city level to show buildings in the shown extent."
+                        }
+                    },
+                    "refreshBBOX" : true,
+                    "defaultFeatureType" : "BagPanden",
+                    "typeUrl" : "data/resourceTypes/BagPanden.json",
+                    "type" : "database",
+                    "enabled" : true,
+                    "url" : "bagcontours",
+                    "renderType" : "geojson",
+                    "dataSourceParameters" : {
+                        "minZoomLevel" : 15,
+                        "getPointFeatures" : true
+                    }
+        }]
     },
     {
       "id": "2f194594-6a8d-469b-673c-e0de6fca82a9",
