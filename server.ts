@@ -25,6 +25,14 @@ cs.start(() => {
         cs.server.post('/bagcontours', (req, res) => {
             mapLayerFactory.processBagContours(req, res);
         });
+
+        cs.server.post('/bagsearchaddress', (req, res) => {
+            mapLayerFactory.processBagSearchQuery(req, res);
+        });
+
+        cs.server.post('/bagbuurten', (req, res) => {
+            mapLayerFactory.processBagBuurten(req, res);
+        });
     }
 
     console.log('really started');

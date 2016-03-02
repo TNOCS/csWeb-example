@@ -4,6 +4,8 @@
     "title": "MY_TITLE",
     "connected": true,
     "logo": "images/CommonSenseRound.png",
+    "useOnlineSearch" : true, 
+    "onlineSearchUrl" : "bagsearchaddress",
     "userPrivileges": {
         "mca": {
             "expertMode": true
