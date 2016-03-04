@@ -1,7 +1,8 @@
 start /B code .
 start /B code ../csWeb
-start tsc -w
+start tsc -p ../csWeb/csServerComp -w
+start tsc -p ../csWeb/csComp -w 
+start tsc -w 
 start nodemon server
-cd ../csWeb
-start tsc -w
+cd ../csWeb/
 gulp watch

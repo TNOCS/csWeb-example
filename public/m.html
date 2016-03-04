@@ -118,22 +118,22 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs tabs-left" id="leftPanelTab">
                         <!-- 'tabs-right' for right tabs -->
-                        <li uib-popover="{{'BASESTYLES' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'BASESTYLES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a href="#basestyles" data-toggle="tab">
                                 <div class="mapIcon"></div>
                             </a>
                         </li>
-                        <li class="active" uib-popover="{{'LAYERS' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li class="active" popover="{{'LAYERS' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a href="#layers" data-toggle="tab">
                                 <div class="layersIcon"></div>
                             </a>
                         </li>
-                        <li uib-popover="{{'FEATURES' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'FEATURES' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a href="#features" data-toggle="tab">
                                 <div class="featuresIcon"></div>
                             </a>
                         </li>
-                        <li uib-popover="{{'LEGEND' | translate}}" popover-popup-delay="750" popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
+                        <li popover="{{'LEGEND' | translate}}" popover-popup-delay=750 popover-placement="right" popover-trigger="mouseenter" popover-append-to-body="true">
                             <a href="#legend" data-toggle="tab">
                                 <div class="mainLegendIcon"></div>
                             </a>
@@ -160,7 +160,7 @@
             <div id="rightpanelTabContainer" class="tabbable tabs-left" style="display:table; height:100%; padding:0px;">
                 <!-- Nav tabs -->
                 <ul id="rightpanelTabs" class="nav nav-tabs" style="margin-right:0px; width:50px; height:100%; display:table-cell">
-                    <li style="margin-top:10px" ng-style="!vm.$layerService.visual.rightPanelVisible && {'opacity':0}" ng-click="vm.$layerService.visual.rightPanelVisible = false" uib-popover="{{'HIDE_PANEL' | translate}}" popover-placement="left" popover-trigger="mouseenter"
+                    <li style="margin-top:10px" ng-style="!vm.$layerService.visual.rightPanelVisible && {'opacity':0}" ng-click="vm.$layerService.visual.rightPanelVisible = false" popover="{{'HIDE_PANEL' | translate}}" popover-placement="left" popover-trigger="mouseenter"
                     popover-append-to-body="true">
                         <a class="rightpanel-hidetab">
                             <span class="fa fa-2x fa-chevron-right"></span>

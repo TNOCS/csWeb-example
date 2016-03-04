@@ -26,23 +26,23 @@
     }
   ],
   "dashboards": [
-    {
-      "id": "home",
-      "name": "Home",
-      "editMode": false,
-      "showMap": true,
-      "showTimeline": true,
-      "showLeftmenu": true,
-      "showLegend": true,
-      "showBackgroundImage": false,
-      "visiblelayers": [
-        "zorgkantoor"
-      ],
-      "widgets": null,
-      "visibleLeftMenuItems": [
-        "!lm-layers"
-      ]
-    },
+      {
+        "id": "home",
+        "name": "Home",
+        "editMode": false,
+        "showMap": true,
+        "showTimeline": true,
+        "showLeftmenu": true,
+        "showLegend": true,
+        "showBackgroundImage": false,
+        "visiblelayers": [
+          "zorgkantoor"
+        ],
+        "widgets": null,
+        "visibleLeftMenuItems": [
+          "!lm-layers"
+        ]
+      },
     {
       "id": "health",
       "name": "Health",
@@ -112,6 +112,7 @@
         "layers"
       ]
     },
+
     {
       "id": "datatable",
       "name": "Table",
@@ -158,45 +159,6 @@
           "top": "10px",
           "width": "650px",
           "height": "350px"
-        }
-      ]
-    },
-    {
-      "id": "tablemap",
-      "name": "Widget & Map",
-      "editMode": false,
-      "showMap": true,
-      "mapWidth": "50%",
-      "viewBounds": {
-      "southWest": [
-            50.3,
-            3.2
-        ],
-        "northEast": [
-            53.5,
-            8.0
-        ]
-      },
-      "alignMapRight": true,
-      "showTimeline": false,
-      "showLeftmenu": false,
-      "showRightmenu": false,
-      "showBackgroundImage": false,
-      "widgets": [
-        {
-          "id": "3654881f-0644-46ea-5133-f45c3dde8c99",
-          "directive": "markdownwidget",
-          "title": "Test",
-          "data": {
-            "url": "data/projects/20141104_csMap/test.md",
-            "content": "# Hello World #\n | a | b | c | d | \n |---|---|---|---| \n | 1 | 2 | 3 | 4 |"
-          },
-          "elementId": "widget-3654881f-0644-46ea-5133-f45c3dde8c99",
-          "enabled": true,
-          "left": "0px",
-          "top": "0px",
-          "width": "50%",
-          "height": "100%"
         }
       ]
     }
@@ -536,6 +498,28 @@
       "oneLayerActive": true,
       "layers": [
         {
+          "id": "bagcontouren",
+          "title": "BAG Contours",
+          "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: Kadaster.)",
+          "type": "database",
+          "renderType": "geojson",
+          "heatmapItems": null,
+          "url": "bagcontours",
+          "typeUrl": "data/resourceTypes/BagPanden.json",
+          "refreshBBOX": true,
+          "languages": {
+            "nl": {
+              "title": "BAG Contouren",
+              "description": "Basis Administratie Gebouwen (Bron: Kadaster)."
+            },
+            "en": {
+              "title": "BAG Contours",
+              "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: Kadaster.)"
+            }
+          },
+          "defaultFeatureType": "BagPanden"
+        },
+        {
           "id": "bag",
           "title": "BAG (Cadastre)",
           "description": "Dutch Cadastre's Basis Administratie Gebouwen. (Source: PDOK.nl.)",
@@ -697,7 +681,7 @@
           "description": "Data at the health office regions. (Source: CBS, BAG, TNO, DigiMV.)",
           "type": "geojson",
           "renderType": "geojson",
-          "defaultLegendProperty": "aant_inw",
+                "defaultLegendProperty": "aant_inw",
           "url": "data/projects/20141104_csMap/Regio ZK ZZP CBS.json",
           "typeUrl": "data/resourceTypes/Zorgkantoor.json",
           "opacity": 100,
@@ -815,63 +799,6 @@
           }
         }
       ]
-    },
-    {
-        "id": "BAG",
-        "description": "Layers based on the Basis Administratie Gebouwen (Bron: Kadaster)",
-        "title": "BAG",
-        "clusterLevel": 21,
-        "clustering": true,
-        "oneLayerActive": true,
-        "layers": [{
-                    "id" : "bagadressen",
-                    "reference" : "bagadressen",
-                    "languages" : {
-                        "nl" : {
-                            "title" : "BAG Woningen",
-                            "description" : "Zoom in op wijkniveau om woningen in het betreffende gebied te laden."
-                        },
-                        "en" : {
-                            "title" : "BAG Woningen",
-                            "description" : "Zoom in on city level to show buildings in the shown extent."
-                        }
-                    },
-                    "refreshBBOX" : true,
-                    "defaultFeatureType" : "BagPanden",
-                    "typeUrl" : "data/resourceTypes/BagPanden.json",
-                    "type" : "database",
-                    "enabled" : false,
-                    "url" : "bagcontours",
-                    "renderType" : "geojson",
-                    "dataSourceParameters" : {
-                        "minZoomLevel" : 15,
-                        "getPointFeatures" : false
-                    }
-        }, {
-                    "id" : "bagcontouren",
-                    "reference" : "bagcontouren",
-                    "languages" : {
-                        "nl" : {
-                            "title" : "BAG Contouren",
-                            "description" : "Zoom in op wijkniveau om woningen in het betreffende gebied te laden."
-                        },
-                        "en" : {
-                            "title" : "BAG Contouren",
-                            "description" : "Zoom in on city level to show buildings in the shown extent."
-                        }
-                    },
-                    "refreshBBOX" : true,
-                    "defaultFeatureType" : "BagPanden",
-                    "typeUrl" : "data/resourceTypes/BagPanden.json",
-                    "type" : "database",
-                    "enabled" : true,
-                    "url" : "bagcontours",
-                    "renderType" : "geojson",
-                    "dataSourceParameters" : {
-                        "minZoomLevel" : 15,
-                        "getPointFeatures" : true
-                    }
-        }]
     },
     {
       "id": "2f194594-6a8d-469b-673c-e0de6fca82a9",

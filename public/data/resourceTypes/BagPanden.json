@@ -2,29 +2,24 @@
 	"featureTypes" : {
 		"BagPanden" : {
 			"name" : "BagPanden",
-            "contourProperty" : "contour",
 			"style" : {
 				"fillColor" : "#99ff99",
 				"strokeColor" : "#000000",
+				"drawingMode" : "Polygon",
 				"strokeWidth" : 1,
 				"iconWidth" : 30,
 				"iconHeight" : 30,
-				"iconUri" : "images/2004 home.png",
+				"iconUri" : "images/4018 zorgkantoor.png",
+				"nameLabel" : "postcode",
 				"maxTitleResolution" : -1
-			}, "propertyTypeKeys":"Adres;postcode;Name;woonplaatsnaam;gemeentenaam;wijknaam;wijkcode;buurtnaam;buurtcode;bouwjaar;woningen_in_pand;woningtype;oppervlakteverblijfsobject;gebruiksdoelverblijfsobject;pandid;"
+			}, "propertyTypeKeys":"postcode;huisnummer;bouwjaar;Name"
 		}
 	},
 	"propertyTypeData" : {
-        "Adres": {
-        	"label": "Adres",
-        	"titel": "Adres",
-        	"type": "textarea",
-        	"expression": "properties.openbareruimtenaam + ' ' + properties.huisnummer + properties.huisletter||'' + properties.huisnummertoevoeging||''"
-       	},
 		"postcode" : {
 			"label" : "postcode",
 			"type" : "text",
-			"title" : "Postcode",
+			"title" : "postcode",
 			"visibleInCallOut" : true,
 			"canEdit" : false,
 			"isSearchable" : false
@@ -33,7 +28,6 @@
 			"label" : "Name",
 			"type" : "text",
 			"title" : "Naam",
-            "stringFormat" : "{openbareruimtenaam} {huisnummer}{huisletter}",
 			"visibleInCallOut" : false,
 			"canEdit" : true,
 			"isSearchable" : false
@@ -42,133 +36,12 @@
 			"label" : "huisnummer",
 			"type" : "number",
 			"title" : "huisnummer",
-			"visibleInCallOut" : false,
 			"isSearchable" : false
 		},
-        "huisletter" : {
-			"label" : "huisletter",
-			"type" : "text",
-			"title" : "huisletter",
-			"visibleInCallOut" : false,
-			"isSearchable" : false
-		},
-        "huisnummertoevoeging" : {
-			"label" : "huisnummertoevoeging",
-			"type" : "text",
-			"title" : "huisnummertoevoeging",
-			"visibleInCallOut" : false,
-			"isSearchable" : false
-		},        
 		"bouwjaar" : {
 			"label" : "bouwjaar",
 			"type" : "number",
-			"title" : "Bouwjaar",
-            "section" : "Kenmerken",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-		"openbareruimtenaam" : {
-			"label" : "openbareruimtenaam",
-			"type" : "text",
-			"title" : "straat",
-			"visibleInCallOut" : false,
-			"isSearchable" : false
-		},
-        "woningen_in_pand" : {
-			"label" : "woningen_in_pand",
-			"type" : "number",
-			"title" : "# Woningen in pand",
-            "section" : "Kenmerken",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "woningtype": {
-        	"label": "woningtype",
-        	"titel": "Woningtype",
-        	"type": "text",
-            "section" : "Kenmerken",
-        	"expression": "properties.woningen_in_pand === 1 ? 'EGW' : 'MGW'"
-       	},
-        "oppervlakteverblijfsobject" : {
-			"label" : "oppervlakteverblijfsobject",
-			"type" : "number",
-			"title" : "Oppervlakte",
-            "section" : "Kenmerken",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "gebruiksdoelverblijfsobject" : {
-			"label" : "gebruiksdoelverblijfsobject",
-			"type" : "text",
-			"title" : "Gebruiksdoel",
-            "section" : "Kenmerken",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "woonplaatsnaam" : {
-			"label" : "woonplaatsnaam",
-			"type" : "text",
-			"title" : "Woonplaats",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "gemeentenaam" : {
-			"label" : "gemeentenaam",
-			"type" : "text",
-			"title" : "Gemeente",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "wijknaam" : {
-			"label" : "wijknaam",
-			"type" : "text",
-			"title" : "Wijk",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "buurtnaam" : {
-			"label" : "buurtnaam",
-			"type" : "text",
-			"title" : "Buurt",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "buurtcode" : {
-			"label" : "buurtcode",
-			"type" : "text",
-			"title" : "Buurtcode",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-        "wijkcode" : {
-			"label" : "wijkcode",
-			"type" : "text",
-			"title" : "Wijkcode",
-			"visibleInCallOut" : true,
-			"isSearchable" : false
-		},
-		"contour" : {
-			"label" : "contour",
-            "section" : "Kenmerken",
-			"type" : "text",
-			"title" : "contour",
-			"visibleInCallOut" : false,
-			"isSearchable" : false
-		},
-		"latlon" : {
-			"label" : "latlon",
-            "section" : "Kenmerken",
-			"type" : "text",
-			"title" : "latlon",
-			"visibleInCallOut" : false,
-			"isSearchable" : false
-		},
-		"pandid" : {
-			"label" : "pandid",
-            "section" : "Kenmerken",
-			"type" : "text",
-			"title" : "Pand identificatie",
-			"visibleInCallOut" : true,
+			"title" : "bouwjaar",
 			"isSearchable" : false
 		}
 	}
