@@ -16,6 +16,15 @@ var templateCache = require('gulp-angular-templatecache');
 var deploy        = require('gulp-gh-pages');
 var purify        = require('gulp-purifycss');
 var concatCss     = require('gulp-concat-css');
+var OfflineSearch = require('csweb-offline-search');
+
+gulp.task('index', function() {
+    var offlineSearchOptions = {
+        propertyNames: ['Name', 'LOC_NAAM', 'GeoAddress', 'LOC_STRAAT', 'adres', 'gemeente', 'postcode', 'plaats', 'Organisatie'],
+        stopWords: ['de', 'het', 'een', 'en', 'van', 'aan', 'met', 'of', 'the', 'a', 'an']
+    };
+    new OfflineSearch('public/data/projects/projects.json', offlineSearchOptions);
+})
 
 /** Destination of the client/server distribution */
 var dest = 'dist/';
