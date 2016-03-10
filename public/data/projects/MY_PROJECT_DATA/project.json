@@ -20,10 +20,9 @@
         "layers": [{
             "id": "vluchtelingen",
             "title": "Syrische immigranten",
-            "updated": 1446566859561,
             "enabled": true,
             "description": "Bron: CBS persbericht van vrijdag 30 oktober.",
-            "dynamicResource": true,
+            "dynamicResource": false,
             "defaultFeatureType": "asielzoeker",
             "typeUrl": "data/resourceTypes/POLYGON_FEATURE.json",
             "opacity": 75,
@@ -41,10 +40,9 @@
         "layers": [{
             "id": "azc",
             "title": "Asielzoekerscentra",
-            "updated": 1446573970281,
             "enabled": true,
             "description": "BRON: COA.nl",
-            "dynamicResource": true,
+            "dynamicResource": false,
             "defaultFeatureType": "azc",
             "typeUrl": "data/resourceTypes/POINT_FEATURE.json",
             "opacity": 75,
