@@ -71,7 +71,7 @@ module App {
             $messageBusService.subscribe('feature', this.featureMessageReceived);
             $messageBusService.subscribe('layer', this.layerMessageReceived);
 
-            var rpt = csComp.Helpers.createRightPanelTab('featureprops', 'featureprops', null, 'Selected feature', '{{"FEATURE_INFO" | translate}}', 'info');
+            var rpt = csComp.Helpers.createRightPanelTab('featureprops', 'featureprops', null, 'Selected feature', '{{\'FEATURE_INFO\' | translate}}', 'info');
             this.$messageBusService.publish('rightpanel', 'activate', rpt);
             this.$layerService.visual.rightPanelVisible = false; // otherwise, the rightpanel briefly flashes open before closing.
 
