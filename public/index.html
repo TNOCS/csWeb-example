@@ -59,23 +59,6 @@
     <div class="body" style="top:0">
         <map mapid="main" class="map-main" ng-show="vm.$layerService.visual.mapVisible" ng-style="{width: vm.$layerService.visual.mapWidth ? vm.$layerService.visual.mapWidth : '100%', left: vm.$layerService.visual.alignMapRight ? vm.$layerService.visual.mapWidth : 0}"></map>
 
-
-        <!-- Link to views -->
-        <div class="navbar-collapse collapse">
-
-
-
-            <!-- Dashboard selection -->
-
-
-            <!-- Select renderer -->
-            <ul class="nav navbar-nav" style="float:right">
-                <li data-ng-if="vm.$layerService.activeMapRenderer.title!='leaflet'"><a data-ng-click="vm.$layerService.selectRenderer('leaflet')">2D</a></li>
-                <li data-ng-if="vm.$layerService.activeMapRenderer.title!='cesium'"><a data-ng-click="vm.$layerService.selectRenderer('cesium')">3D</a></li>
-            </ul>
-
-
-        </div>
     </div>
 
     <!--<div style="position: absolute;width: 100%;height:100%;pointer-events: none;display:table">-->
@@ -156,7 +139,7 @@
                             </svg>
                         </li>
 
-                        <li class="lp-tab" data-target="#filters" data-toggle="tab">
+                        <li ng-hide="vm.$layerService.noFilters" class="lp-tab" data-target="#filters" data-toggle="tab">
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
                                 <g>
@@ -180,7 +163,7 @@
                     <div class="tab-content ">
                         <base-map-list class="tab-pane" id="basestyles"></base-map-list>
                         <layers-directive class="tab-pane active" id="layers"></layers-directive>
-                        <filter-list class="tab-pane" id="filters"></filter-list>
+                        <filter-list ng-hide="vm.$layerService.noFilters" class="tab-pane" id="filters"></filter-list>
                         <style-list class="tab-pane" id="styles"></style-list>
                         <dashboard-selection class="tab-pane" id="dashboardselection"></dashboard-selection>
                         <project-settings class="tab-pane" id="settings"></project-settings>

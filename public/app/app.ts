@@ -60,19 +60,13 @@ module App {
                     this.contourAction = new ContourAction.ContourActionModel();
                     this.$layerService.addActionService(this.contourAction);
 
-                    // NOTE EV: You may run into problems here when calling this inside an angular apply cycle.
-                    // Alternatively, check for it or use (dependency injected) $timeout.
-                    if ($scope.$root.$$phase !== '$apply' && $scope.$root.$$phase !== '$digest') { $scope.$apply(); }
-                    //$scope.$apply();
+                    if ($scope.$root.$$phase !== '$apply' && $scope.$root.$$phase !== '$digest') { $scope.$apply(); }                    
                 }
             });
-
-            //$messageBusService.subscribe('sidebar', this.sidebarMessageReceived);
+            
             $messageBusService.subscribe('feature', this.featureMessageReceived);
             $messageBusService.subscribe('layer', this.layerMessageReceived);
 
-            var rpt = csComp.Helpers.createRightPanelTab('featureprops', 'featureprops', null, 'Selected feature', '{{\'FEATURE_INFO\' | translate}}', 'info');
-            this.$messageBusService.publish('rightpanel', 'activate', rpt);
             this.$layerService.visual.rightPanelVisible = false; // otherwise, the rightpanel briefly flashes open before closing.
 
             this.$layerService.openSolution('data/projects/projects.json', $location.$$search.layers);
@@ -135,11 +129,6 @@ module App {
                     break;
             }
 
-            // NOTE EV: You need to call apply only when an event is received outside the angular scope.
-            // However, make sure you are not calling this inside an angular apply cycle, as it will generate an error.
-            // if (this.$scope.$root.$$phase != '$apply' && this.$scope.$root.$$phase != '$digest') {
-            //     this.$scope.$apply();
-            // }
         }
 
         /**
@@ -171,10 +160,6 @@ module App {
             this.$messageBusService.publish('sidebar', 'toggle');
             window.console.log('Publish toggle sidebar');
         }
-
-        //public showTable(tableVisible: boolean) {
-        //    this.$mapService.mapVisible = !tableVisible;
-        //}
 
         isActive(viewLocation: string) {
             return viewLocation === this.$location.path();
