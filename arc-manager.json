@@ -1,0 +1,12 @@
+{
+  "ids": {
+    "ManagerHost": 2,
+    "LoadBalancer": 1
+  },
+  "models": {
+    "ManagerHost": {
+      "4361cec8-2b7d-4ee4-a60a-cd500b551c91": "{\"id\":\"4361cec8-2b7d-4ee4-a60a-cd500b551c91\",\"host\":\"ndw.sensorlab.tno.nl\",\"port\":8701,\"actions\":[\"delete\",\"edit\"],\"protocol\":\"http\",\"created\":1453726759804,\"error\":{\"message\":\"connect ETIMEDOUT 134.221.210.64:8701\"},\"errorType\":\"unknown\",\"app\":null,\"processes\":null,\"$$hashKey\":\"object:159134\",\"isHostProblem\":true}"
+    },
+    "LoadBalancer": {}
+  }
+}

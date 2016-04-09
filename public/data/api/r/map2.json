@@ -1,0 +1,1 @@
+{"id":"map2","title":"map2","featureTypes":{"Default":{"style":{"nameLabel":"Name","drawingMode":"Point","strokeWidth":1,"strokeColor":"#0033ff","fillOpacity":1,"opacity":1,"fillColor":"#FFFF00","stroke":true,"rotate":0,"iconHeight":32,"iconWidth":32}}},"propertyTypeData":{"age":{"title":"age","type":"number"},"street":{"title":"street"}},"propertyTypes":{}}

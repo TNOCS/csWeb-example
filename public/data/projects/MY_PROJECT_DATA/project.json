@@ -60,22 +60,7 @@
         "showLegend": false,
         "showRightmenu": false,
         "showBackgroundImage": false,
-        "widgets": [{
-            "id": "5e75accc-21a4-47c0-de1d-8093ae45e305",
-            "directive": "markdownwidget",
-            "elementId": "widget-5e75accc-21a4-47c0-de1d-8093ae45e305",
-            "enabled": true,
-            "style": "default",
-            "left": "3%",
-            "right": "",
-            "top": "3%",
-            "width": "150px",
-            "height": "100px",
-            "data": {
-                "title": "Welcome",
-                "content": "Hello world"
-            }
-        }],
+        "widgets": [],
         "mobile": true
     }, {
         "id": "datatable",

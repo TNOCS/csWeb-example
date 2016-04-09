@@ -1,0 +1,897 @@
+{
+    "id": "Rotterdam",
+    "title": "Rotterdam Dashboard",
+    "description": "csMap is developed by the Dutch Research Organisation TNO, in first instance for the Dutch Ministry of Health (VWS).",
+    "logo": "images/CommonSenseRound.png",
+    "url": "/api/projects/Rotterdam",
+    "isDynamic": true,
+    "timeLine": {
+        "start": 1451602800000,
+        "end": 1451775600000,
+        "range": 172800000,
+        "zoomLevelName": "hours",
+        "isLive": false,
+        "focus": 1451751422597,
+        "zoomLevel": 3600000
+    },
+    "mcas": [
+        {
+            "userWeight": 1,
+            "criteria": [],
+            "isPlaUpdated": false,
+            "isPlaScaled": false,
+            "id": "99344f36-f75a-4fa7-26c0-6b68a159c7ca",
+            "userWeightMax": 5,
+            "featureIds": [
+                "api/resources/mcs#Default"
+            ],
+            "stringFormat": "{0:0.0}",
+            "title": "test",
+            "label": "mca_test",
+            "weight": 1
+        }
+    ],
+    "datasources": null,
+    "dashboards": [
+        {
+            "id": "activity",
+            "name": "Wegen",
+            "editMode": true,
+            "showMap": true,
+            "showTimeline": true,
+            "showLeftmenu": true,
+            "showLegend": true,
+            "showRightmenu": false,
+            "showBackgroundImage": false,
+            "visiblelayers": [
+                "NDW"
+            ],
+            "viewBounds": {
+                "southWest": [
+                    51.70022541811113,
+                    3.608322143554688
+                ],
+                "northEast": [
+                    52.11156571943228,
+                    4.926681518554688
+                ]
+            },
+            "widgets": [
+                {
+                    "id": "381909d4-4087-4a6b-77f4-70b50cc6c016",
+                    "directive": "charts",
+                    "elementId": "widget-381909d4-4087-4a6b-77f4-70b50cc6c016",
+                    "enabled": true,
+                    "style": "default",
+                    "left": "365px",
+                    "right": "",
+                    "top": "",
+                    "bottom": "125px",
+                    "width": "345",
+                    "height": "200px",
+                    "data": {
+                        "title": "Snelheid",
+                        "generator": {
+                            "type": "sensordata",
+                            "featureType": "Link",
+                            "properties": [
+                                "speed"
+                            ]
+                        }                          
+                    }
+                },
+                {
+                    "id": "15003c0a-8e13-44ea-89da-ed5144baa536",
+                    "directive": "charts",
+                    "elementId": "widget-15003c0a-8e13-44ea-89da-ed5144baa536",
+                    "enabled": true,
+                    "style": "default",
+                    "left": "13px",
+                    "right": "",
+                    "top": "",
+                    "bottom": "125px",
+                    "width": "345",
+                    "height": "200px",
+                    "data": {
+                        "title": "Intensiteit",
+                        "generator": {
+                            "type": "sensordata",
+                            "featureType": "Link",
+                            "properties": [
+                                "intensity"
+                            ]
+                        }                           
+                    }
+                },
+                {
+                    "id": "3195214a-9770-4bb4-5299-8744cdf188c4",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-3195214a-9770-4bb4-5299-8744cdf188c4",
+                    "enabled": false,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle",
+                        "spec": {
+                            "width": 300,
+                            "height": 200,
+                            "padding": {
+                                "top": 10,
+                                "left": 30,
+                                "bottom": 30,
+                                "right": 10
+                            },
+                            "data": [
+                                {
+                                    "name": "table",
+                                    "values": [
+                                        {
+                                            "x": 1,
+                                            "y": 28
+                                        },
+                                        {
+                                            "x": 2,
+                                            "y": 55
+                                        },
+                                        {
+                                            "x": 3,
+                                            "y": 43
+                                        },
+                                        {
+                                            "x": 4,
+                                            "y": 91
+                                        },
+                                        {
+                                            "x": 5,
+                                            "y": 81
+                                        },
+                                        {
+                                            "x": 6,
+                                            "y": 53
+                                        },
+                                        {
+                                            "x": 7,
+                                            "y": 19
+                                        },
+                                        {
+                                            "x": 8,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 9,
+                                            "y": 52
+                                        },
+                                        {
+                                            "x": 10,
+                                            "y": 48
+                                        },
+                                        {
+                                            "x": 11,
+                                            "y": 24
+                                        },
+                                        {
+                                            "x": 12,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 13,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 14,
+                                            "y": 66
+                                        },
+                                        {
+                                            "x": 15,
+                                            "y": 17
+                                        },
+                                        {
+                                            "x": 16,
+                                            "y": 27
+                                        },
+                                        {
+                                            "x": 17,
+                                            "y": 68
+                                        },
+                                        {
+                                            "x": 18,
+                                            "y": 16
+                                        },
+                                        {
+                                            "x": 19,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 20,
+                                            "y": 15
+                                        }
+                                    ]
+                                }
+                            ],
+                            "scales": [
+                                {
+                                    "name": "x",
+                                    "type": "ordinal",
+                                    "range": "width",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "x"
+                                    }
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "linear",
+                                    "range": "height",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "y"
+                                    },
+                                    "nice": true
+                                }
+                            ],
+                            "axes": [
+                                {
+                                    "type": "x",
+                                    "scale": "x"
+                                },
+                                {
+                                    "type": "y",
+                                    "scale": "y"
+                                }
+                            ],
+                            "marks": [
+                                {
+                                    "type": "rect",
+                                    "from": {
+                                        "data": "table"
+                                    },
+                                    "properties": {
+                                        "enter": {
+                                            "x": {
+                                                "scale": "x",
+                                                "field": "x"
+                                            },
+                                            "width": {
+                                                "scale": "x",
+                                                "band": true,
+                                                "offset": -1
+                                            },
+                                            "y": {
+                                                "scale": "y",
+                                                "field": "y"
+                                            },
+                                            "y2": {
+                                                "scale": "y",
+                                                "value": 0
+                                            }
+                                        },
+                                        "update": {
+                                            "fill": {
+                                                "value": "steelblue"
+                                            }
+                                        },
+                                        "hover": {
+                                            "fill": {
+                                                "value": "red"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "f46e5a65-b8a5-48dc-b504-06b864ddc6cf",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-f46e5a65-b8a5-48dc-b504-06b864ddc6cf",
+                    "enabled": false,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle",
+                        "spec": {
+                            "width": 300,
+                            "height": 200,
+                            "padding": {
+                                "top": 10,
+                                "left": 30,
+                                "bottom": 30,
+                                "right": 10
+                            },
+                            "data": [
+                                {
+                                    "name": "table",
+                                    "values": [
+                                        {
+                                            "x": 1,
+                                            "y": 28
+                                        },
+                                        {
+                                            "x": 2,
+                                            "y": 55
+                                        },
+                                        {
+                                            "x": 3,
+                                            "y": 43
+                                        },
+                                        {
+                                            "x": 4,
+                                            "y": 91
+                                        },
+                                        {
+                                            "x": 5,
+                                            "y": 81
+                                        },
+                                        {
+                                            "x": 6,
+                                            "y": 53
+                                        },
+                                        {
+                                            "x": 7,
+                                            "y": 19
+                                        },
+                                        {
+                                            "x": 8,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 9,
+                                            "y": 52
+                                        },
+                                        {
+                                            "x": 10,
+                                            "y": 48
+                                        },
+                                        {
+                                            "x": 11,
+                                            "y": 24
+                                        },
+                                        {
+                                            "x": 12,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 13,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 14,
+                                            "y": 66
+                                        },
+                                        {
+                                            "x": 15,
+                                            "y": 17
+                                        },
+                                        {
+                                            "x": 16,
+                                            "y": 27
+                                        },
+                                        {
+                                            "x": 17,
+                                            "y": 68
+                                        },
+                                        {
+                                            "x": 18,
+                                            "y": 16
+                                        },
+                                        {
+                                            "x": 19,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 20,
+                                            "y": 15
+                                        }
+                                    ]
+                                }
+                            ],
+                            "scales": [
+                                {
+                                    "name": "x",
+                                    "type": "ordinal",
+                                    "range": "width",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "x"
+                                    }
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "linear",
+                                    "range": "height",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "y"
+                                    },
+                                    "nice": true
+                                }
+                            ],
+                            "axes": [
+                                {
+                                    "type": "x",
+                                    "scale": "x"
+                                },
+                                {
+                                    "type": "y",
+                                    "scale": "y"
+                                }
+                            ],
+                            "marks": [
+                                {
+                                    "type": "rect",
+                                    "from": {
+                                        "data": "table"
+                                    },
+                                    "properties": {
+                                        "enter": {
+                                            "x": {
+                                                "scale": "x",
+                                                "field": "x"
+                                            },
+                                            "width": {
+                                                "scale": "x",
+                                                "band": true,
+                                                "offset": -1
+                                            },
+                                            "y": {
+                                                "scale": "y",
+                                                "field": "y"
+                                            },
+                                            "y2": {
+                                                "scale": "y",
+                                                "value": 0
+                                            }
+                                        },
+                                        "update": {
+                                            "fill": {
+                                                "value": "steelblue"
+                                            }
+                                        },
+                                        "hover": {
+                                            "fill": {
+                                                "value": "red"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "4ccb8c88-a790-4868-72f7-15255387d3d3",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-4ccb8c88-a790-4868-72f7-15255387d3d3",
+                    "enabled": false,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle",
+                        "spec": {
+                            "width": 300,
+                            "height": 200,
+                            "padding": {
+                                "top": 10,
+                                "left": 30,
+                                "bottom": 30,
+                                "right": 10
+                            },
+                            "data": [
+                                {
+                                    "name": "table",
+                                    "values": [
+                                        {
+                                            "x": 1,
+                                            "y": 28
+                                        },
+                                        {
+                                            "x": 2,
+                                            "y": 55
+                                        },
+                                        {
+                                            "x": 3,
+                                            "y": 43
+                                        },
+                                        {
+                                            "x": 4,
+                                            "y": 91
+                                        },
+                                        {
+                                            "x": 5,
+                                            "y": 81
+                                        },
+                                        {
+                                            "x": 6,
+                                            "y": 53
+                                        },
+                                        {
+                                            "x": 7,
+                                            "y": 19
+                                        },
+                                        {
+                                            "x": 8,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 9,
+                                            "y": 52
+                                        },
+                                        {
+                                            "x": 10,
+                                            "y": 48
+                                        },
+                                        {
+                                            "x": 11,
+                                            "y": 24
+                                        },
+                                        {
+                                            "x": 12,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 13,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 14,
+                                            "y": 66
+                                        },
+                                        {
+                                            "x": 15,
+                                            "y": 17
+                                        },
+                                        {
+                                            "x": 16,
+                                            "y": 27
+                                        },
+                                        {
+                                            "x": 17,
+                                            "y": 68
+                                        },
+                                        {
+                                            "x": 18,
+                                            "y": 16
+                                        },
+                                        {
+                                            "x": 19,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 20,
+                                            "y": 15
+                                        }
+                                    ]
+                                }
+                            ],
+                            "scales": [
+                                {
+                                    "name": "x",
+                                    "type": "ordinal",
+                                    "range": "width",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "x"
+                                    }
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "linear",
+                                    "range": "height",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "y"
+                                    },
+                                    "nice": true
+                                }
+                            ],
+                            "axes": [
+                                {
+                                    "type": "x",
+                                    "scale": "x"
+                                },
+                                {
+                                    "type": "y",
+                                    "scale": "y"
+                                }
+                            ],
+                            "marks": [
+                                {
+                                    "type": "rect",
+                                    "from": {
+                                        "data": "table"
+                                    },
+                                    "properties": {
+                                        "enter": {
+                                            "x": {
+                                                "scale": "x",
+                                                "field": "x"
+                                            },
+                                            "width": {
+                                                "scale": "x",
+                                                "band": true,
+                                                "offset": -1
+                                            },
+                                            "y": {
+                                                "scale": "y",
+                                                "field": "y"
+                                            },
+                                            "y2": {
+                                                "scale": "y",
+                                                "value": 0
+                                            }
+                                        },
+                                        "update": {
+                                            "fill": {
+                                                "value": "steelblue"
+                                            }
+                                        },
+                                        "hover": {
+                                            "fill": {
+                                                "value": "red"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "cda46ebe-c237-49c1-1e2c-29da9ff9de81",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-cda46ebe-c237-49c1-1e2c-29da9ff9de81",
+                    "enabled": false,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle"
+                    }
+                },
+                {
+                    "id": "0d70a357-fd14-4638-f3a2-16fd51bdd389",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-0d70a357-fd14-4638-f3a2-16fd51bdd389",
+                    "enabled": false,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle"
+                    }
+                },
+                {
+                    "id": "084b476a-add4-4bcb-f708-895c717e5dee",
+                    "directive": "legend-directive",
+                    "title": "Legend",
+                    "elementId": "widget-084b476a-add4-4bcb-f708-895c717e5dee",
+                    "enabled": true,
+                    "left": "10px",
+                    "top": "20px",
+                    "width": "150px",
+                    "data": {
+                        "mode": "lastSelectedStyle",
+                        "spec": {
+                            "width": 300,
+                            "height": 200,
+                            "padding": {
+                                "top": 10,
+                                "left": 30,
+                                "bottom": 30,
+                                "right": 10
+                            },
+                            "data": [
+                                {
+                                    "name": "table",
+                                    "values": [
+                                        {
+                                            "x": 1,
+                                            "y": 28
+                                        },
+                                        {
+                                            "x": 2,
+                                            "y": 55
+                                        },
+                                        {
+                                            "x": 3,
+                                            "y": 43
+                                        },
+                                        {
+                                            "x": 4,
+                                            "y": 91
+                                        },
+                                        {
+                                            "x": 5,
+                                            "y": 81
+                                        },
+                                        {
+                                            "x": 6,
+                                            "y": 53
+                                        },
+                                        {
+                                            "x": 7,
+                                            "y": 19
+                                        },
+                                        {
+                                            "x": 8,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 9,
+                                            "y": 52
+                                        },
+                                        {
+                                            "x": 10,
+                                            "y": 48
+                                        },
+                                        {
+                                            "x": 11,
+                                            "y": 24
+                                        },
+                                        {
+                                            "x": 12,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 13,
+                                            "y": 87
+                                        },
+                                        {
+                                            "x": 14,
+                                            "y": 66
+                                        },
+                                        {
+                                            "x": 15,
+                                            "y": 17
+                                        },
+                                        {
+                                            "x": 16,
+                                            "y": 27
+                                        },
+                                        {
+                                            "x": 17,
+                                            "y": 68
+                                        },
+                                        {
+                                            "x": 18,
+                                            "y": 16
+                                        },
+                                        {
+                                            "x": 19,
+                                            "y": 49
+                                        },
+                                        {
+                                            "x": 20,
+                                            "y": 15
+                                        }
+                                    ]
+                                }
+                            ],
+                            "scales": [
+                                {
+                                    "name": "x",
+                                    "type": "ordinal",
+                                    "range": "width",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "x"
+                                    }
+                                },
+                                {
+                                    "name": "y",
+                                    "type": "linear",
+                                    "range": "height",
+                                    "domain": {
+                                        "data": "table",
+                                        "field": "y"
+                                    },
+                                    "nice": true
+                                }
+                            ],
+                            "axes": [
+                                {
+                                    "type": "x",
+                                    "scale": "x"
+                                },
+                                {
+                                    "type": "y",
+                                    "scale": "y"
+                                }
+                            ],
+                            "marks": [
+                                {
+                                    "type": "rect",
+                                    "from": {
+                                        "data": "table"
+                                    },
+                                    "properties": {
+                                        "enter": {
+                                            "x": {
+                                                "scale": "x",
+                                                "field": "x"
+                                            },
+                                            "width": {
+                                                "scale": "x",
+                                                "band": true,
+                                                "offset": -1
+                                            },
+                                            "y": {
+                                                "scale": "y",
+                                                "field": "y"
+                                            },
+                                            "y2": {
+                                                "scale": "y",
+                                                "value": 0
+                                            }
+                                        },
+                                        "update": {
+                                            "fill": {
+                                                "value": "steelblue"
+                                            }
+                                        },
+                                        "hover": {
+                                            "fill": {
+                                                "value": "red"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "mobile": true
+        }
+    ],
+    "userPrivileges": {
+        "mca": {
+            "expertMode": true
+        },
+        "heatmap": {
+            "expertMode": true
+        }
+    },
+    "expertMode": 3,
+    "baselayers": {},
+    "propertyTypeData": {},
+    "groups": [
+        {
+            "id": "Wegen",
+            "title": "Wegen",
+            "description": "Wegen",
+            "clustering": false,
+            "layers": [
+                {
+                    "id": "NDW",
+                    "title": "NDW",
+                    "type": "geojson",
+                    "renderType": "geojson",
+                    "heatmapItems": null,
+                    "url": "http://ndw.sensorlab.tno.nl:3002/features/layer/Rotterdam",
+                    "typeUrl": "data/api/projects/rotterdam/resources/rotterdam.json",
+                    "sensorLink": {
+                        "linkid": "WVK_ID",
+                        "url2": "data/api/projects/Rotterdam/history.json",
+                        "url": "http://ndw.sensorlab.tno.nl:3002/layer/Rotterdam"
+                    },
+                    "defaultFeatureType": "link",
+                    "defaultLegendProperty": "speed",
+                    "hasSensorData": true,
+                    "timeAware": true
+                }
+            ]
+        }
+    ],
+    "layerDirectory": "/api/layers",
+    "_localFile": "C:\\Arnoud\\Projects\\csWeb-example\\public\\data\\api\\projects\\Rotterdam\\project.json"
+}

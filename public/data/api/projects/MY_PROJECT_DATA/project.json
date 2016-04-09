@@ -1,0 +1,141 @@
+{
+    "id": "MY_PROJECT_DATA",
+    "title": "MY_TITLE21",
+    "logo": "images/CommonSenseRound.png",
+    "url": "/data/api/projects/MY_PROJECT_DATA/project.json",
+    "isDynamic": true,
+    "timeLine": {
+        "focus": 1655,
+        "start": 1451170800000,
+        "end": 1451775600000,
+        "range": 604800000,
+        "zoomLevel": 3600000,
+        "zoomLevelName": "hours"
+    },
+    "mcas": [
+        {
+            "userWeight": 1,
+            "criteria": [],
+            "isPlaUpdated": false,
+            "isPlaScaled": false,
+            "id": "99344f36-f75a-4fa7-26c0-6b68a159c7ca",
+            "userWeightMax": 5,
+            "featureIds": [
+                "api/resources/mcs#Default"
+            ],
+            "stringFormat": "{0:0.0}",
+            "title": "test",
+            "label": "mca_test",
+            "weight": 1
+        }
+    ],
+    "datasources": null,
+    "dashboards": [
+        {
+            "id": "map",
+            "name": "Home",
+            "showMap": true,
+            "showTimeline": true,
+            "showLeftmenu": true,
+            "showLegend": false,
+            "showRightmenu": false,
+            "showBackgroundImage": false,
+            "widgets": [
+                {
+                    "id": "5e75accc-21a4-47c0-de1d-8093ae45e305",
+                    "directive": "markdownwidget",
+                    "elementId": "widget-5e75accc-21a4-47c0-de1d-8093ae45e305",
+                    "enabled": true,
+                    "style": "default",
+                    "left": "3%",
+                    "right": "",
+                    "top": "3%",
+                    "width": "150px",
+                    "height": "100px",
+                    "data": {
+                        "title": "Welcome",
+                        "content": "Hello world",
+                        "mdText": "Hello world"
+                    }
+                }
+            ],
+            "mobile": true
+        },
+        {
+            "id": "datatable",
+            "name": "Table",
+            "showMap": false,
+            "showTimeline": false,
+            "showLeftmenu": false,
+            "showLegend": false,
+            "showRightmenu": false,
+            "showBackgroundImage": false,
+            "widgets": [
+                {
+                    "id": "datatable_id",
+                    "directive": "datatable",
+                    "elementId": "widget-datatable_id",
+                    "enabled": true,
+                    "width": "100%",
+                    "height": "100%"
+                }
+            ],
+            "mobile": true
+        }
+    ],
+    "userPrivileges": {
+        "mca": {
+            "expertMode": true
+        }
+    },
+    "expertMode": 3,
+    "propertyTypeData": {},
+    "groups": [
+        {
+            "id": "Asielzoekers",
+            "title": "Asielzoekers",
+            "description": "MY_LAYER_DESCRIPTION",
+            "clustering": false,
+            "clusterLevel": 12,
+            "layers": [
+                {
+                    "id": "vluchtelingen",
+                    "title": "Syrische immigranten",
+                    "description": "Bron: CBS persbericht van vrijdag 30 oktober.",
+                    "type": "geojson",
+                    "renderType": "geojson",
+                    "heatmapItems": null,
+                    "url": "/data/api/projects/MY_PROJECT_DATA/vluchtelingen.json",
+                    "typeUrl": "data/api/projects/MY_PROJECT_DATA/resources/POLYGON_FEATURE.json",
+                    "opacity": 75,
+                    "defaultFeatureType": "asielzoeker",
+                    "isDynamic": false
+                }
+            ]
+        },
+        {
+            "id": "COA",
+            "title": "COA",
+            "description": "",
+            "clustering": false,
+            "clusterLevel": 20,
+            "layers": [
+                {
+                    "id": "azc",
+                    "title": "Asielzoekerscentra",
+                    "description": "BRON: COA.nl",
+                    "type": "geojson",
+                    "renderType": "geojson",
+                    "heatmapItems": null,
+                    "url": "/data/api/projects/MY_PROJECT_DATA/azc.json",
+                    "typeUrl": "data/api/projects/MY_PROJECT_DATA/resources/POINT_FEATURE.json",
+                    "opacity": 75,
+                    "defaultFeatureType": "azc",
+                    "isDynamic": false
+                }
+            ]
+        }
+    ],
+    "layerDirectory": "/api/layers",
+    "_localFile": "c:\\Arnoud\\Projects\\csWeb-example\\public\\data\\api\\projects\\MY_PROJECT_DATA\\project.json"
+}
