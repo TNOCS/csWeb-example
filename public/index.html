@@ -154,6 +154,12 @@
                                 />
                             </svg>
                         </li>
+                        
+                        <li class="lp-tab close-tab" ng-click="vm.$layerService.visual.leftPanelVisible = !vm.$layerService.visual.leftPanelVisible;vm.$messageBusService.publish('search','reset')">
+                            <div>
+                                <i class="fa fa-times"></i>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
