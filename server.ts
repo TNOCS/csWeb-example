@@ -1,12 +1,12 @@
 import Winston = require('winston');
 import * as csweb from "csweb";
-
+import Effects = require('./models/effects');
 Winston.remove(Winston.transports.Console);
 Winston.add(Winston.transports.Console, <Winston.ConsoleTransportOptions>{
     colorize: true,
     label: 'csWeb',
     prettyPrint: true
-});
+});  
 
 var startDatabaseConnection = false;
 
@@ -32,10 +32,18 @@ cs.start(() => {
 
         cs.server.post('/bagbuurten', (req, res) => {
             mapLayerFactory.processBagBuurten(req, res);
-        });
-    }
+        }); 
 
+        
+    }
+    var effects_object = new Effects();
+        
+    cs.server.get('/effects/model', (req, res) => effects_object.processModel(req, res));
+    cs.server.get('/effects/models', (req, res) => effects_object.processModels(req, res));
+    cs.server.post('/effects/start', (req, res) => effects_object.process(req, res));
+     
     console.log('really started');
     //    //{ key: "imb", s: new ImbAPI.ImbAPI("app-usdebug01.tsn.tno.nl", 4000),options: {} }
     //    var ml = new MobileLayer.MobileLayer(api, "mobilelayer", "/api/resources/SGBO", server, messageBus, cm);
 });
+  

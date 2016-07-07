@@ -128,6 +128,9 @@
         "preview": "http://a.basemaps.cartocdn.com/light_nolabels/11/673/1051.png"
     }],
     "projects": [{
+        "title": "csWeb Showcases",
+        "url": "data/projects/showcases/project.json"
+    },{
         "title": "MY_TITLE",
         "url": "data/projects/MY_PROJECT_DATA/project.json",
         "dynamic": true
@@ -139,8 +142,5 @@
         "title": "API Example",
         "url": "data/projects/ApiTest/project.json",
         "dynamic": true
-    }, {
-        "title": "csWeb Showcases",
-        "url": "data/projects/showcases/project.json"
     }]
 }

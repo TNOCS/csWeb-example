@@ -36,7 +36,6 @@
       "showLegend": true,
       "showBackgroundImage": false,
       "visiblelayers": [
-        "zorgkantoor"
       ],
       "widgets": null,
       "visibleLeftMenuItems": [
@@ -53,7 +52,6 @@
       "showRightmenu": false,
       "showBackgroundImage": false,
       "visiblelayers": [
-        "zorgkantoor",
         "Hospitals"
       ],
       "baselayer": "Satellite Day",
@@ -385,6 +383,28 @@
             "en": {
               "title": "Hospitals",
               "description": "These are the locations of the Dutch hospitals."
+            }
+          }
+        },
+        {
+          "id": "Tankstations",
+          "title": "Tankstations",
+          "description": "These are the locations of the Dutch Tankstations.",
+          "type": "geojson",
+          "renderType": "geojson",
+          "heatmapItems": null,
+          "url": "data/projects/showcases/tankstations.json",
+          "typeUrl": "data/resourceTypes/resources.json",
+          "opacity": 100,
+          "defaultFeatureType": "Tankstation",
+          "languages": {
+            "nl": {
+              "title": "Tankstations",
+              "description": "De locaties van de Nederlandse Tankstations."
+            },
+            "en": {
+              "title": "Tankstations",
+              "description": "These are the locations of the Dutch Tankstations."
             }
           }
         },
@@ -850,7 +870,7 @@
                     "defaultFeatureType" : "BagPanden",
                     "typeUrl" : "data/resourceTypes/BagPanden.json",
                     "type" : "database",
-                    "enabled" : true,
+                    "enabled" : false,
                     "url" : "bagcontours",
                     "renderType" : "geojson",
                     "dataSourceParameters" : {
@@ -858,6 +878,171 @@
                         "getPointFeatures" : true
                     }
         }]
+    },
+     {
+        "languages": {
+            "nl": {
+                "title": "3D Effects",
+                "description": "Demonstreert 3d Effects features"
+            },
+            "en": {
+                "title": "3D Effects",
+                "description": "Demonstrates 3d Effects features"
+            }
+        },
+        "clustering": false,
+        "layers": [
+        {
+            "id": "effects",
+            "reference": "effects",             
+            "title": "Effects",
+            "description": "Effects",  
+            "clustering": false,
+            "refreshBBOX": false,
+            "type": "geojson",
+            "renderType": "geojson",
+            "defaultFeatureType": "effects_point",
+            "url": "data/projects/effects/raw-points-height-1.json",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "enabled": false
+        },    
+        {
+            "id": "effectsCombinedEemshaven",
+            "reference": "effectsCombinedEemshaven",             
+            "title": "effectsCombinedEemshaven",
+            "description": "effectsCombinedEemshaven",  
+            "clustering": false,
+            "refreshBBOX": false,
+            "type": "geojson",
+            "renderType": "geojson",
+            "defaultFeatureType": "effects_point",
+            "url": "data/projects/effects/eemshaven/raw-points-all.json",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "enabled": false
+        },
+        {
+            "id": "effectsCombinedGroningen",
+            "reference": "effectsCombinedGroningen",             
+            "title": "effectsCombinedGroningen",
+            "description": "effectsCombinedGroningen",  
+            "clustering": false,
+            "refreshBBOX": false,
+            "type": "geojson",
+            "renderType": "geojson",
+            "defaultFeatureType": "effects_point",
+            "url": "data/projects/effects/raw-points-all.json",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "enabled": false
+        } , {
+            "id": "nEffects",
+            "reference": "nEffects",             
+            "title": "nEffects",
+            "description": "nEffects",  
+            "clustering": false,
+            "refreshBBOX": false,
+            "type": "geojson",
+            "renderType": "geojson",
+            "defaultFeatureType": "effects_point",
+            "url": "data/projects/effects/raw-points-height-1.json",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "enabled": false
+        }    
+        , {
+            "id": "nEffects2",
+            "reference": "nEffects2",             
+            "title": "nEffects2",
+            "description": "nEffects2",  
+            "clustering": false,
+            "refreshBBOX": false,
+            "type": "geojson",
+            "renderType": "geojson",
+            "defaultFeatureType": "effects_point",
+            "url": "data/projects/effects/raw-points-height-2.json",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "enabled": false
+        }         
+        ]
+    },
+    {
+      "languages": {
+          "nl": {
+              "title": "3D Gebouwen",
+              "description": "Demonstreert 3d gebouwen features"
+          },
+          "en": {
+              "title": "3D Buildings",
+              "description": "Demonstrates 3d building features"
+          }
+      },
+      "id" : "asdfasdf-buildings",
+      "clustering": false,
+      "layers": [{
+        "id": "Gebouwen",
+        "reference": "Gebouwen",
+        "languages": {
+            "nl": {
+                "title": "Gebouwen",
+                "description": "De Gebouwen van de huidig geselecteerde gemeente."
+            },
+            "en": {
+                "title": "Buildings",
+                "description": "These are the buildings of the selected gemeente."
+            }
+        },
+        "type": "geojson",
+        "defaultFeatureType": "BUILDING",
+        "url": "data/projects/gemeentes_3d/Aalsmeer.json",
+        "typeUrl": "data/resourceTypes/resources.json",
+        "enabled": false,
+        "opacity": 100
+      }]
+    },
+    {
+      "title" : "3D",
+      "clustering" : false,
+      "oneLayerActive" : true,
+      "id" : "asdfasdf-3d",     
+      "layers" : [
+          {
+            "id": "3Dtestamsterdam",
+            "reference": "3D Test Amsterdam",
+            "languages": {
+                "nl": {
+                    "title": "3D Buildings Amsterdam",
+                    "description": "TOP10NL."
+                },
+                "en": {
+                    "title": "3D Buildings Amsterdam",
+                    "description": "TOP10NL."
+                }
+            },
+            "type": "GeoJson",
+            "url": "data/projects/showcases/amsterdam.json",
+            "enabled": false,
+            "defaultFeatureType": "BUILDING",
+            "typeUrl": "data/resourceTypes/resources.json",
+            "opacity": 100
+          }, {
+            "id": "3Dtestamsterdamarena",
+            "reference": "3D Test Amsterdam Arena",
+            "languages": {
+                "nl": {
+                    "title": "3D Buildings Amsterdam Arena",
+                    "description": "TOP10NL."
+                },
+                "en": {
+                    "title": "3D Buildings Amsterdam Arena",
+                    "description": "TOP10NL."
+                }
+            },
+            "type": "GeoJson",
+            "defaultFeatureType": "BUILDING",
+           	"typeUrl": "data/resourceTypes/resources.json",
+            "url": "data/projects/showcases/arena.json",
+            "enabled": false,
+            "opacity": 100
+          }
+      ]
     },
     {
       "id": "2f194594-6a8d-469b-673c-e0de6fca82a9",
