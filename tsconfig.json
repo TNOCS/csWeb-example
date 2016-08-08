@@ -19,6 +19,8 @@
     "server.ts",
     "public\\app\\app.ts",
     "public\\app\\m.ts",
+    "public\\translations\\locale-nl.ts",
+    "public\\translations\\locale-en.ts",
     "Scripts\\typings\\tsd.d.ts",
     "Scripts\\typings\\angular-translate\\angular-translate.d.ts",
     "Scripts\\typings\\angular-ui-router\\angular-ui-router.d.ts",

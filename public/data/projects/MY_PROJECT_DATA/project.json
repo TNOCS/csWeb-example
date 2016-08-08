@@ -64,7 +64,7 @@
         "mobile": true
     }, {
         "id": "datatable",
-        "name": "Table",
+        "name": "TABLE",
         "showMap": false,
         "showTimeline": false,
         "showLeftmenu": false,
@@ -76,6 +76,7 @@
             "directive": "datatable",
             "elementId": "widget-datatable_id",
             "enabled": true,
+            "top": "75px",
             "width": "100%",
             "height": "100%"
         }],
