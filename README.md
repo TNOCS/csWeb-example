@@ -35,6 +35,7 @@ Finally, although you can use any text editor to edit the project, we use the fr
 First, get the code in a local folder of your choice, either by forking this project or by downloading the zip file and unpacking it in a folder. Next, install all dependencies, compile and run node:
 
 ```shell
+typings i
 npm i
 cd public && bower i
 cd ..

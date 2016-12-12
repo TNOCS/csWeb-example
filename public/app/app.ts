@@ -181,6 +181,12 @@ module App {
         'ngCookies', 'angularSpectrumColorpicker',
         'wiz.markdown', 'ngAnimate'
     ])
+        .config(($compileProvider) => {
+            $compileProvider.preAssignBindingsEnabled(true);
+        })
+        .config($qProvider => {
+            $qProvider.errorOnUnhandledRejections(false);
+        })
         .config(localStorageServiceProvider => {
             localStorageServiceProvider.prefix = 'csMap';
         })

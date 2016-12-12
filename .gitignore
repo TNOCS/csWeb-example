@@ -13,3 +13,4 @@ server.js
 dist/
 
 offline_search_result.json
+typings/
